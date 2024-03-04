@@ -1,0 +1,10 @@
+.homeBar{
+    position: fixed;
+    color: black;
+    background-color: coral;
+
+    margin-left: 25vw;
+    padding-right: 40vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
