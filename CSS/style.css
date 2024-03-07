@@ -1,10 +1,44 @@
 .homeBar{
     position: fixed;
     color: black;
-    background-color: coral;
 
     margin-left: 25vw;
     padding-right: 40vw;
     padding-top: 2vh;
     padding-bottom: 2vh;
 }
+
+.textInTweet{
+    color: black;
+    z-index: 1;
+}
+
+.tweet{
+    position: fixed;
+    left: 30%;
+    margin-top: 20%;
+}
+
+.tweetBox{
+    position: fixed;
+    width: 30vw;
+    height: 25vh;
+    background-color: gray;
+    z-index: 0;
+    margin-top: 5vh;
+}
+
+.naamInTweet{
+    margin-left: 80%;
+}
+
+.profileBar{
+
+    position: fixed;
+    width: 30vw;
+    height: 30vh;
+    margin-bottom: 20vh;
+    background-color: skyblue;
+    z-index: -1;
+}
+
