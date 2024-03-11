@@ -4,28 +4,29 @@ const scrollContainer = document.documentElement; // You may need to adjust this
 
 let increaseAmount = 0;
 
-chirpButton.onclick = function() {
-    let newChirp = chirpToClone.cloneNode(true);
-    chirpToClone.after(newChirp);
-    
-    newChirp.style.position = "absolute"; // Change position to relative
+chirpButton.onclick = function () {
+  let newChirp = chirpToClone.cloneNode(true);
+  chirpToClone.after(newChirp);
 
-    newChirp.style.top = increaseAmount + "px"; // Set the top position
+  newChirp.style.position = "absolute"; // Change position to relative
 
-    increaseAmount += 300;
+  newChirp.style.top = increaseAmount + "px"; // Set the top position
 
-    // Scroll to the bottom of the page after adding a new chirp
+  increaseAmount += 300;
 
-    // Ensure vertical scrolling is enabled
+  // Scroll to the bottom of the page after adding a new chirp
 
-    let textToChirp = maketweetText()
+  // Ensure vertical scrolling is enabled
 
+  let textToChirp = maketweetText();
 
-    let tweetTextElement = newChirp.querySelector('.textInTweet');
-    tweetTextElement.textContent = textToChirp;
-}
+  let tweetTextElement = newChirp.querySelector(".textInTweet");
+  tweetTextElement.textContent = textToChirp;
+};
 
-function maketweetText(){
-    let tweetText = prompt()
-    return tweetText
+function maketweetText() {
+  let tweetText = prompt();
+  if (tweetText.length > 281) 
+    tweetText = tweetText.substring(0, 281);
+    return tweetText;
 }
