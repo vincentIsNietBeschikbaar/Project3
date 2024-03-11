@@ -1,3 +1,4 @@
+
 .submitButton {
     background-color: forestgreen;
     color: wheat;
@@ -50,7 +51,8 @@
 }
 
 .homeBar{
-    position: fixed;
+
+    position: sticky;
     color: black;
 
     margin-left: 25vw;
@@ -67,11 +69,11 @@
 .tweet{
     position: absolute;
     left: 30%;
-    margin-top: 30%;
+    top: 0;
 }
 
 .tweetBox{
-    position: fixed;
+    position: absolute;
     width: 30vw;
     height: 25vh;
     background-color: gray;
@@ -84,10 +86,25 @@
 }
 
 .profileBar{
-    position: fixed;
+    position: absolute;
     width: 30vw;
     height: 30vh;
     margin-bottom: 20vh;
     background-color: skyblue;
     z-index: -1;
+}
+
+.actions{
+    position: sticky;
+    left: 0;
+    top: 0;
+
+    background-color: skyblue;
+    width: 20%;
+}
+
+.makeChirpButton{
+    position: sticky;
+    left: 0;
+    top: 0;
 }
