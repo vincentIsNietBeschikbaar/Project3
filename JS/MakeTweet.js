@@ -2,7 +2,7 @@ const chirpButton = document.getElementById("makeChirpButton");
 const chirpToClone = document.getElementById("cloneTweet");
 const scrollContainer = document.documentElement; // You may need to adjust this based on your specific scroll container
 
-let increaseAmount = 0;
+let increaseAmount = 250;
 
 chirpButton.onclick = function () {
     let newChirp = chirpToClone.cloneNode(true);

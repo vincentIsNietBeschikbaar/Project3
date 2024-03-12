@@ -4,7 +4,8 @@
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
             Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
-            <input class="submitButton" type="submit" value="Inloggen">
+            <input onclick="send(this.form)" class="submitButton" type="submit" value="Inloggen" name="Inloggen" >
+
         </form>
 
     </nav>
@@ -15,12 +16,13 @@
         $db = new PDO("mysql:host=localhost;dbname=databasetweeters", "root", "");
 
         if (isset($_POST['Inloggen'])) {
+
             $username = filter_input(INPUT_POST, "Naam", FILTER_SANITIZE_STRING);
             $Wachtwoord = $_POST['Wachtwoord'];
 
-            $query = $db->prepare("SELECT * FROM gebruikers WHERE username = :user");
+            $query = $db->prepare("SELECT * FROM datavantwitter WHERE Naam = :user");
 
-            $query->bindParam("user", $Naam);
+            $query->bindParam("user", $username);
             $query->execute();
 
             if ($query->rowCount() == 1) {
@@ -28,10 +30,10 @@
                 if (password_verify($Wachtwoord, $result["Wachtwoord"])) {
                     echo "Juiste gegevens";
                 } else {
-                    echo "Onjuiste gegevens";
+                    echo "Onjuist wachtwoord of gebruikersnaam";
                 }
             } else {
-                echo "Onjuiste gegevens";
+                echo "Onjuiste gegevens2";
             }
             echo "<br>";
         } else{
