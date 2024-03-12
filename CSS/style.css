@@ -108,3 +108,15 @@
     left: 0;
     top: 0;
 }
+
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: all;
+    position: absolute;
+    inset-block-start: 220px;
+  }
+  
+  .fa:hover {
+    color: red;
+  }
