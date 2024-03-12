@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
-
+ 
 <body>
-
+ 
     <nav>
         <p class="homeBar">Home</p>
     </nav>
-
+ 
     <nav class="actions">
-        <button id="makeChirpButton">Maak een Chirp</button>
+        <button class="makeChirpButton" id="makeChirpButton">Maak een Chirp</button>
     </nav>
-
-
-
-
+ 
+ 
+ 
+ 
     <nav id="cloneTweet" class="tweet">
+        <i onclick="likeTweet(this)" class="fa fa-thumbs-up"></i>
         <nav class="profileBar">
             <p class="naamInTweet">Gebuiker</p>
         </nav>
-
+ 
         <nav class="tweetBox">
-            
-            <p class="textInTweet">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem quae cupiditate dolorem libero voluptate ratione excepturi amet saepe earum. Repudiandae dicta saepe aliquid aspernatur, odio totam sed enim officiis voluptatum.</p>
+           
+            <p class="textInTweet">Al is een 🐎 nog zo snel, een frikandel word het toch wel!</p>
         </nav>
     </nav>
-
+ 
     <script src="../JS/MakeTweet.js"></script>
-
-
+<script src="../JS/likeTweet.js"></script>
+ 
 </body>
-
+ 
 </html>
