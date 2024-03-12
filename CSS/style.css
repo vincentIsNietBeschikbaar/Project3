@@ -1,103 +1,112 @@
-
 .submitButton {
-    background-color: forestgreen;
-    color: wheat;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10%;
-    margin-left: 80%;
+  background-color: forestgreen;
+  color: wheat;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10%;
+  margin-left: 80%;
 }
 
 .signUpBox {
-    position: absolute;
-    margin-left: 50%;
-    background-color: lightgray;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
-    border-radius: 20px;
-    margin-left: 35%;
-    margin-top: 10%;
+  position: absolute;
+  margin-left: 50%;
+  background-color: lightgray;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  border-radius: 20px;
+  margin-left: 35%;
+  margin-top: 10%;
 }
 
-.Username{
-    margin-bottom: 20px;
+.Username {
+  margin-bottom: 20px;
 }
 
-.email{
-    color: black;
+.email {
+  color: black;
 }
 
-.Password{
-    margin-top: 20px;
+.Password {
+  margin-top: 20px;
 }
 
-.background{
-    position: fixed;
-    margin: 100%;
+.background {
+  position: fixed;
+  margin: 100%;
 }
 
-.LoggingInButton{
-    text-decoration: none;
-    color: white;
-    background-color: seagreen;
-    padding: 20px;
-    opacity: .7;
-    border-radius: 20PX;
+.LoggingInButton {
+  text-decoration: none;
+  color: white;
+  background-color: seagreen;
+  padding: 20px;
+  opacity: 0.7;
+  border-radius: 20px;
 }
 
-.LoggingInButton:hover{
-    color: BROWN;
+.LoggingInButton:hover {
+  color: BROWN;
 }
 
-.homeBar{
+.homeBar {
+  position: sticky;
+  color: black;
 
-    position: sticky;
-    color: black;
-
-    margin-left: 25vw;
-    padding-right: 40vw;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+  margin-left: 25vw;
+  padding-right: 40vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
-.textInTweet{
-    color: black;
-    z-index: 1;
+.textInTweet {
+  color: black;
+  z-index: 1;
 }
 
-.tweet{
-    position: absolute;
-    left: 30%;
-    top: 0;
+.tweet {
+  position: absolute;
+  left: 30%;
+  top: 0;
 }
 
-.tweetBox{
-    position: absolute;
-    width: 30vw;
-    height: 25vh;
-    background-color: gray;
-    z-index: 0;
-    margin-top: 5vh;
+.tweetBox {
+  position: absolute;
+  width: 30vw;
+  height: 25vh;
+  background-color: gray;
+  z-index: 0;
+  margin-top: 5vh;
 }
 
-.naamInTweet{
-    margin-left: 80%;
+.naamInTweet {
+  margin-left: 80%;
 }
 
-.profileBar{
-    position: absolute;
-    width: 30vw;
-    height: 30vh;
-    margin-bottom: 20vh;
-    background-color: skyblue;
-    z-index: -1;
+.profileBar {
+  position: absolute;
+  width: 30vw;
+  height: 30vh;
+  margin-bottom: 20vh;
+  background-color: skyblue;
+  z-index: -1;
 }
 
-.actions{
+.actions {
+  background-color: skyblue;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
 
-    background-color: skyblue;
-    padding: 20px;
-    position: sticky;
-    top: 0;
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  inset-block-start: 220px;
+}
+
+.fa:hover {
+  color: red;
 }
