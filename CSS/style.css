@@ -95,16 +95,9 @@
 }
 
 .actions{
-    position: sticky;
-    left: 0;
-    top: 0;
 
     background-color: skyblue;
-    width: 20%;
-}
-
-.makeChirpButton{
+    padding: 20px;
     position: sticky;
-    left: 0;
     top: 0;
 }

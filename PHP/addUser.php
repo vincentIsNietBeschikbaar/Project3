@@ -64,7 +64,7 @@
 
     </nav>
 
-    <a class="LoggingInButton" href="">Inloggen?</a>
+    <a class="LoggingInButton" href="inloggen.php">Inloggen?</a>
 
 </body>
 <html>

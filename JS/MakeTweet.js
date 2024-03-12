@@ -4,10 +4,10 @@ const scrollContainer = document.documentElement; // You may need to adjust this
 
 let increaseAmount = 0;
 
-chirpButton.onclick = function() {
+chirpButton.onclick = function () {
     let newChirp = chirpToClone.cloneNode(true);
     chirpToClone.after(newChirp);
-    
+
     newChirp.style.position = "absolute"; // Change position to relative
 
     newChirp.style.top = increaseAmount + "px"; // Set the top position
@@ -25,7 +25,9 @@ chirpButton.onclick = function() {
     tweetTextElement.textContent = textToChirp;
 }
 
-function maketweetText(){
+function maketweetText() {
     let tweetText = prompt()
+
+
     return tweetText
 }
