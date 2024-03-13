@@ -12,43 +12,47 @@
 
 <body>
 
-    <?php
-    // Databaseconfiguratie
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "databasetweeters";
+<?php
+// Databaseconfiguratie
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "databasetweeters";
 
-    // Controleer of het formulier is ingediend
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Haal de waarden op uit het formulier
-        $Naam = $_POST["Naam"];
-        $Email = $_POST["Email"];
-        $Wachtwoord = $_POST["Wachtwoord"];
+// Controleer of het formulier is ingediend
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Haal de waarden op uit het formulier
+    $Naam = $_POST["Naam"];
+    $Email = $_POST["Email"];
+    $Wachtwoord = $_POST["Wachtwoord"];
 
-        try {
-            // Maak een PDO-verbinding
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // Wachtwoord hashen
+    $hashedPassword = password_hash($Wachtwoord, PASSWORD_DEFAULT);
 
-            // Stel de PDO-foutmodus in op exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        // Maak een PDO-verbinding
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-            // SQL-query om een nieuw record in te voegen
-            $sql = "INSERT INTO datavantwitter (Naam, Email, Wachtwoord)
-                VALUES ('$Naam', '$Email', '$Wachtwoord')";
+        // Stel de PDO-foutmodus in op exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Gebruik exec() omdat er geen resultaten worden geretourneerd
-            $conn->exec($sql);
+        // SQL-query om een nieuw record in te voegen
+        $sql = "INSERT INTO datavantwitter (Naam, Email, Wachtwoord)
+            VALUES ('$Naam', '$Email', '$hashedPassword')";
 
-            echo "New record created successfully";
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
+        // Gebruik exec() omdat er geen resultaten worden geretourneerd
+        $conn->exec($sql);
 
-        // Sluit de databaseverbinding
-        $conn = null;
+        echo "New record created successfully";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
-    ?>
+
+    // Sluit de databaseverbinding
+    $conn = null;
+}
+?>
+
 
     <!-- HTML-formulier -->
     <nav class="signUpBox" >

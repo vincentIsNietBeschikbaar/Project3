@@ -1,14 +1,4 @@
 <body>
-    <nav class="signUpBox">
-
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
-            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
-            <input onclick="send(this.form)" class="submitButton" type="submit" value="Inloggen" name="Inloggen" >
-
-        </form>
-
-    </nav>
 
     <?php
 
@@ -20,30 +10,44 @@
             $username = filter_input(INPUT_POST, "Naam", FILTER_SANITIZE_STRING);
             $Wachtwoord = $_POST['Wachtwoord'];
 
-            $query = $db->prepare("SELECT * FROM datavantwitter WHERE Naam = :user");
+            $query = $db->prepare("SELECT Wachtwoord FROM datavantwitter WHERE Naam = :user");
 
             $query->bindParam("user", $username);
+
             $query->execute();
 
             if ($query->rowCount() == 1) {
                 $result = $query->fetch(PDO::FETCH_ASSOC);
+
+
                 if (password_verify($Wachtwoord, $result["Wachtwoord"])) {
-                    echo "Juiste gegevens";
+                    echo "Hallo, " . $username;
+                    
                 } else {
-                    echo "Onjuist wachtwoord of gebruikersnaam";
+                    echo "$Wachtwoord";
+
                 }
             } else {
                 echo "Onjuiste gegevens2";
             }
             echo "<br>";
-        } else{
+        } else {
             echo "kan inlogknop niet vinden";
         }
     } catch (PDOException $e) {
         die("Error!:" . $e->getMessage());
     }
-
-
     ?>
+
+    <nav class="signUpBox">
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
+            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
+            <input onclick="send(this.form)" class="submitButton" type="submit" value="Inloggen" name="Inloggen">
+
+        </form>
+
+    </nav>
 
 </body>
