@@ -32,7 +32,7 @@ session_start();
             <span class="likeCounter">0</span>
         </p>
         <nav class="profileBar">
-            <p class="naamInTweet">Gebruiker</p>
+            <p class="naamInTweet"><?php echo $_SESSION["user"] ?> </p>
         </nav>
         <nav class="tweetBox">
             <p class="textInTweet">Plaats uw tekst hier</p>
