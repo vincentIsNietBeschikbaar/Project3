@@ -100,21 +100,21 @@
 }
 
 .fa {
-  font-size: 50px;
+  font-size: 40px;
   cursor: pointer;
   user-select: none;
   position: absolute;
-  inset-block-start: 290px;
+  inset-block-start: 220px;
   right: -70px;
 }
 
 .fa:hover {
-  color: deepskyblue;
+  color: red;
 }
 
 .like-button{
 position: absolute;
-inset-block-start: 290px;
+inset-block-start: 215px;
 right: -100px;
 
 }

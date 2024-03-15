@@ -1,10 +1,7 @@
-var likeButton = document.getElementById("likeButton");
-var likeCount = 0;
+let heart = document.getElementById('heart')
+heart.addEventListener("click", toggleHeart);
 
-function likeTweet() {
-  likeButton.classList.toggle("liked");
-  likeCount += likeButton.classList.contains("liked") ? 1 : -1;
-  
-  var likeCounterElement = document.querySelector(".like-counter");
-  likeCounterElement.textContent = likeCount;
+function toggleHeart() {
+    this.classList.toggle('fa-heart');
+    this.classList.toggle('fa-heart-o');
 }
