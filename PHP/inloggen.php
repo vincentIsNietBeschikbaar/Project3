@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <body>
 
     <?php
@@ -22,9 +26,10 @@
 
                 if (password_verify($Wachtwoord, $result["Wachtwoord"])) {
                     echo "Hallo, " . $username;
+                    startSession($username);
                     
                 } else {
-                    echo "$Wachtwoord";
+                    echo "Wachtwoord of gebruikersnaam is onjuist";
 
                 }
             } else {
@@ -36,6 +41,12 @@
         }
     } catch (PDOException $e) {
         die("Error!:" . $e->getMessage());
+    }
+
+
+    function startSession($user){
+        $_SESSION["user"] = $user;
+
     }
     ?>
 
