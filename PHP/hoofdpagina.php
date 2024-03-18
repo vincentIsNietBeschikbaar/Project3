@@ -14,9 +14,6 @@ session_start();
 </head>
  
 <body>
-    <div>
-        <i id="heart" class="fa fa-heart"></i>
-    </div>
     <nav>
         <p class="homeBar">Home</p>
     </nav>

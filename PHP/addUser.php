@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Naam = $_POST["Naam"];
     $Email = $_POST["Email"];
     $Wachtwoord = $_POST["Wachtwoord"];
-
     // Wachtwoord hashen
     $hashedPassword = password_hash($Wachtwoord, PASSWORD_DEFAULT);
 
@@ -58,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="signUpBox" >
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
+            Gebruikersnaam: <input class="Username" type="text" name="Naam" required maxlength="16"><br>
             Email: <input type="email" class="email" name="Email" required><br>
-            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
+            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required minlength="8"><br>
             <input class="submitButton" type="submit" value="Registreren">
         </form>
 
