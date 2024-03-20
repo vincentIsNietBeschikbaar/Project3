@@ -32,7 +32,7 @@ session_start();
             <p class="naamInTweet"><?php echo $_SESSION["user"] ?> </p>
         </nav>
         <nav class="tweetBox">
-            <p class="textInTweet">Plaats uw tekst hier</p>
+            <p class="textInTweet">Ik ben <?php echo $_SESSION["user"] ?>, een gebruiker op Churpify, de 100% werkende versie van Twitter (of X)</p>
         </nav>
     </nav>
 
