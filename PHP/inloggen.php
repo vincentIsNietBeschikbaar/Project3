@@ -3,7 +3,7 @@
 ?>
 
 <body>
-
+<link rel="stylesheet" href="../CSS/style.css">
     <?php
 
     try {
@@ -56,7 +56,7 @@
             Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
             Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
             <input onclick="send(this.form)" class="submitButton" type="submit" value="Inloggen" name="Inloggen">
-
+            <a class="WebsiteButton" href="hoofdpagina.php">Ga naar de Website</a>
         </form>
     </nav>
 </body>

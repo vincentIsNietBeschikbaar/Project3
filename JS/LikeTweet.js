@@ -1,5 +1,9 @@
-let heart = document.getElementById('heart')
-heart.addEventListener("click", toggleHeart);
+document.addEventListener("DOMContentLoaded", function() {
+    let heart = document.getElementById('heart');
+    if (heart) {
+        heart.addEventListener("click", toggleHeart);
+    }
+});
 
 function toggleHeart() {
     this.classList.toggle('fa-heart');

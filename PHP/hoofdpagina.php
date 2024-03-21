@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // SQL-query om een nieuw record in te voegen
-        echo "Tweet in database gegooit";
+        echo "Tweet opgeslagen";
         $sql = "INSERT INTO berichten (Poster, chirpText, aantalLikes)
             VALUES ('$originalPoster', '$chirpifyText', '$amountOfLikes')";
 
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <nav id="cloneTweet" class="tweet" data-post-id="1">
-        <i onclick="likeTweet(this)" class="fa fa-heart"></i>
+        <i id="heart" class="fa fa-heart-o"></i>
         <p class="like-button">
             <span class="likeCounter">0</span>
         </p>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
         </nav>
         <nav class="tweetBox">
-            <p class="textInTweet" name="Chirpify">Plaats uw tekst hier</p>
+            <p class="textInTweet" name="Chirpify">Ik ben <?php  echo ($_SESSION["user"]) ?>, een gebruiker op Churpify, de 100% werkende versie van Twitter (of X)</p>
         </nav>
     </nav>
 
@@ -87,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
     <script src="../JS/MakeTweet.js?v=<?php echo time(); ?>"></script>
+    <script src="../JS/LikeTweet.js"></script>
 </body>
 
 </html>

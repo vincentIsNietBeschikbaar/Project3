@@ -44,6 +44,21 @@
   opacity: 0.7;
   border-radius: 20px;
 }
+.WebsiteButton {
+  text-decoration: none;
+  background-color: seagreen;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 0%;
+  margin-top: -35px;
+  font-size: 10px;
+}
+
+.WebsiteButton:hover {
+  color: BROWN;
+}
 
 .LoggingInButton:hover {
   color: BROWN;
@@ -100,6 +115,7 @@
 }
 
 .fa {
+  color: red !important; 
   font-size: 40px;
   cursor: pointer;
   user-select: none;
@@ -108,15 +124,11 @@
   right: -70px;
 }
 
-.fa:hover {
-  color: red;
-}
-
-.like-button{
-position: absolute;
-inset-block-start: 215px;
-right: -100px;
-
+.like-button {
+  position: absolute;
+  inset-block-start: 215px;
+  right: -100px;
+  color: red !important;
 }
 
 .makeChirpifyButton{
