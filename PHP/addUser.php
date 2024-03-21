@@ -19,6 +19,7 @@ $username = "root";
 $password = "";
 $dbname = "databasetweeters";
 
+
 // Controleer of het formulier is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Haal de waarden op uit het formulier
@@ -52,14 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
     <!-- HTML-formulier -->
     <nav class="signUpBox" >
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             Gebruikersnaam: <input class="Username" type="text" name="Naam" required maxlength="16"><br>
             Email: <input type="email" class="email" name="Email" required><br>
-            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required minlength="8"><br>
+            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required minlength="2"><br>
             <input class="submitButton" type="submit" value="Registreren">
         </form>
 

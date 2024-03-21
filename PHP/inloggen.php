@@ -30,15 +30,16 @@
                     
                 } else {
                     echo "Wachtwoord of gebruikersnaam is onjuist";
-
                 }
             } else {
-                echo "Onjuiste gegevens2";
+                echo $query->rowCount();
             }
             echo "<br>";
         } else {
             echo "kan inlogknop niet vinden";
         }
+
+
     } catch (PDOException $e) {
         die("Error!:" . $e->getMessage());
     }
@@ -46,7 +47,6 @@
 
     function startSession($user){
         $_SESSION["user"] = $user;
-
     }
     ?>
 
@@ -58,7 +58,5 @@
             <input onclick="send(this.form)" class="submitButton" type="submit" value="Inloggen" name="Inloggen">
 
         </form>
-
     </nav>
-
 </body>

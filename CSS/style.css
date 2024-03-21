@@ -94,7 +94,6 @@
 }
 
 .actions {
-  
   padding: 20px;
   position: sticky;
   top: 0;
@@ -118,4 +117,18 @@ position: absolute;
 inset-block-start: 215px;
 right: -100px;
 
+}
+
+.makeChirpifyButton{
+  margin-left: 0;
+  margin-top: 5%;
+  position: sticky;
+}
+
+.makeChirpifyBox{
+  margin-left: 0;
+  margin-top: 5%;
+  position: sticky;
+  padding: 50px;
+  resize: none;
 }
