@@ -2,35 +2,42 @@
 session_start();
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "databaseBerichten";
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "databaseBerichten";
+try {
+    // Create a new PDO instance
+    $conn = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
 
+    // Set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $amountOfLikes = 5000;
-    $originalPoster = $_SESSION["user"];
-    $chirpifyText = $_POST['makeChirpifyBox'];
+    // SQL query to retrieve records
+    $sql = "SELECT chirpText FROM berichten ORDER BY ID DESC LIMIT 10";
+    
+    // Prepare the SQL statement
+    $stmt = $conn->prepare($sql);
 
-    try {
-        // Maak een PDO-verbinding
-        $conn = new PDO("mysql:host=;dbname=$dbname", $username, $password);
+    // Execute the SQL statement
+    $stmt->execute();
 
-        // Stel de PDO-foutmodus in op exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Fetch all rows as associative arrays
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // SQL-query om een nieuw record in te voegen
-        $sql = "INSERT INTO berichten (Poster, chirpText, aantalLikes)
-            VALUES ('$originalPoster', '$chirpifyText', '$amountOfLikes')";
-
-        // Gebruik exec() omdat er geen resultaten worden geretourneerd
-        $conn->exec($sql);
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+    // Check if there are any results
+    if ($results) {
+        // Loop through the results and echo each chirpText
+        foreach ($results as $row) {
+            echo $row['chirpText'] . "<br>";
+        }
+    } else {
+        echo "No results found.";
     }
+} catch(PDOException $e) {
+    // Handle errors gracefully
+    echo "Error: " . $e->getMessage();
 }
 
 ?>
@@ -51,42 +58,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php
     echo "Welkom,  " . $_SESSION["user"] . ".<br>";
     ?>
-
-    <nav>
-        <p class="homeBar">Home</p>
     </nav>
+    
 
+    <a href="plaatstweet.php">Maak een tweet hier</a>
 
-    <nav id="cloneTweet" class="tweet" data-post-id="1">
-        <i id="heart" class="fa fa-heart-o"></i>
-        <p class="like-button">
-            <span class="likeCounter">0</span>
-        </p>
-        <nav class="profileBar">
-            <p class="naamInTweet">
-                <?php echo ($_SESSION["user"]) ?>
-            </p>
-        </nav>
-        <nav class="tweetBox">
-            <p class="textInTweet" name="Chirpify">Ik ben <?php  echo ($_SESSION["user"]) ?>, een gebruiker op Churpify, de 100% werkende versie van Twitter (of X)</p>
-        </nav>
-    </nav>
-
-    <nav>
-         <button  id="ChirpButton">Plaats</button>
-
-    </nav>
-
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-
-        <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30"
-            rows="10"></textarea><br>
-        <input class="makeChirpifyButton"  type="submit" value="Zet in database">
-
-    </form>
-
-    <script src="../JS/MakeTweet.js?v=<?php echo time(); ?>"></script>
     <script src="../JS/LikeTweet.js"></script>
+
+    <nav id="cloneTweet" class="tweet" data-post-id="1"> 
+        <i onclick="likeTweet(this)" class="fa fa-heart"></i> 
+        <p class="like-button"> 
+            <span class="likeCounter">0</span> 
+        </p> 
+        <nav class="profileBar"> 
+            <p class="naamInTweet"> 
+                <?php echo ($_SESSION["user"]) ?> 
+            </p> 
+        </nav> 
+        <nav class="tweetBox"> 
+            <p class="textInTweet" name="Chirpify">Plaats uw tekst hier</p> 
+        </nav> 
+    </nav> 
+
 </body>
 
 </html>
