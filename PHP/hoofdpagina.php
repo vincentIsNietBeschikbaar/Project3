@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // SQL-query om een nieuw record in te voegen
-        echo "Tweet opgeslagen";
         $sql = "INSERT INTO berichten (Poster, chirpText, aantalLikes)
             VALUES ('$originalPoster', '$chirpifyText', '$amountOfLikes')";
 
