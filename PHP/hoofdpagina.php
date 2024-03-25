@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+echo "Welkom,  " . $_SESSION["user"] . ".<br>";
+
 
 $servername = "localhost";
 $username = "root";
@@ -15,8 +17,8 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // SQL query to retrieve records
-    $sql = "SELECT chirpText FROM berichten ORDER BY ID DESC LIMIT 10";
-    
+    $sql = "SELECT * FROM berichten ORDER BY ID DESC LIMIT 10";
+
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
 
@@ -30,12 +32,13 @@ try {
     if ($results) {
         // Loop through the results and echo each chirpText
         foreach ($results as $row) {
-            echo $row['chirpText'] . "<br>";
+
+            echo "<div id=\"tweets\">" . $row["Poster"] . ":     " . $row['chirpText'] . "<br> </div>";
         }
     } else {
         echo "No results found.";
     }
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     // Handle errors gracefully
     echo "Error: " . $e->getMessage();
 }
@@ -55,30 +58,29 @@ try {
 
 <body>
 
-    <?php
-    echo "Welkom,  " . $_SESSION["user"] . ".<br>";
-    ?>
+    <nav id="cloneTweet" class="tweet" data-post-id="1">
+        <i onclick="likeTweet(this)" class="fa fa-heart"></i>
+        <p class="like-button">
+            <span class="likeCounter">0</span>
+        </p>
+        <nav class="profileBar">
+            <p class="naamInTweet">
+                <?php echo ($_SESSION["user"]) ?>
+            </p>
+        </nav>
+        <nav class="tweetBox">
+            <p class="textInTweet" name="Chirpify">Plaats uw tekst hier</p>
+        </nav>
     </nav>
-    
 
+
+    </nav>
     <a href="plaatstweet.php">Maak een tweet hier</a>
 
     <script src="../JS/LikeTweet.js"></script>
+    <script src="../JS/MakeTweet.js"></script>
 
-    <nav id="cloneTweet" class="tweet" data-post-id="1"> 
-        <i onclick="likeTweet(this)" class="fa fa-heart"></i> 
-        <p class="like-button"> 
-            <span class="likeCounter">0</span> 
-        </p> 
-        <nav class="profileBar"> 
-            <p class="naamInTweet"> 
-                <?php echo ($_SESSION["user"]) ?> 
-            </p> 
-        </nav> 
-        <nav class="tweetBox"> 
-            <p class="textInTweet" name="Chirpify">Plaats uw tekst hier</p> 
-        </nav> 
-    </nav> 
+
 
 </body>
 

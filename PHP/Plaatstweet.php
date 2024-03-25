@@ -1,7 +1,9 @@
 <?php 
 session_start(); 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+echo "Welkom,  " . $_SESSION["user"] . ".<br>"; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pressed
     $servername = "localhost"; 
     $username = "root"; 
     $password = ""; 
@@ -38,8 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } 
 ?>
 
-
- 
 <!DOCTYPE html> 
 <html lang="en"> 
  
@@ -52,10 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head> 
  
 <body> 
- 
-    <?php 
-    echo "Welkom,  " . $_SESSION["user"] . ".<br>"; 
-    ?> 
  
     <nav> 
         <p class="homeBar">Home</p> 

@@ -36,3 +36,8 @@ function maketweetText() {
     tweetText = tweetText.substring(0, 281);
     return tweetText;
 }
+
+const tweets = document.getElementById("tweets");
+
+
+
