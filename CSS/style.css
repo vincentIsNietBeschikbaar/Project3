@@ -146,12 +146,3 @@
   padding: 50px;
   resize: none;
 }
-
-#tweets {
-  margin-left: 0;
-
-  position: absolute;
-
-  background-color: aliceblue;
-  padding: 5px;
-}

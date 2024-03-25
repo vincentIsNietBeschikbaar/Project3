@@ -1,12 +1,10 @@
 const chirpToClone = document.getElementById("cloneTweet"); // the tweet that is used to create other tweets
-const fieldToPlace = document.getElementById("makeChirpField")// field to make tweets
 
 const scrollContainer = document.documentElement; // You may need to adjust this based on your specific scroll container
 
 let increaseAmount = 300;
 
-function useless() {
-  console.log("user pressed button")
+function makeTweet(tweetText, Poster) {
   let newChirp = chirpToClone.cloneNode(true);
   chirpToClone.after(newChirp);
 
@@ -20,38 +18,32 @@ function useless() {
 
   // Ensure vertical scrolling is enabled
 
-  let textToChirp = maketweetText();
-
   let tweetTextElement = newChirp.querySelector(".textInTweet");
-  tweetTextElement.textContent = textToChirp;
+  let profileBar = newChirp.querySelector(".profileBar")
+
+  tweetTextElement.appendChild(tweetText);
+  profileBar.appendChild(Poster);
 }
 
-
-
-function maketweetText() {
-  console.log(fieldToPlace.value)
-  const tweetText = fieldToPlace.value
-  if (tweetText.length > 281)
-    tweetText = tweetText.substring(0, 281);
-  return tweetText;
-}
-
-
+// tweetcount makes a new id name for each tweet
 let tweetcount = 0
-let amountToLower = 0
-
+// the amount to lower a tweet
 
 function moveTweets() {
 
   while (tweetcount < 10) {
 
-    console.log("tweets" + tweetcount)
     let currentTweet = document.getElementById('tweets' + tweetcount)
-
-    amountToLower += 200;
-
-    currentTweet.style.color = "#FF0000";
+    let currentPoster = document.getElementById('Poster'+ tweetcount)
     tweetcount += 1;
+
+    currentPoster.style.top = 0;
+    currentPoster.style.zIndex = 5;
+    currentPoster.style.marginLeft = 5%
+
+    console.log(currentTweet);
+
+    makeTweet(currentTweet, currentPoster);
 
   }
 }

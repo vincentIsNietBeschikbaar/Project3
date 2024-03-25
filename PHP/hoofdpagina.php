@@ -33,7 +33,9 @@ try {
         // Loop through the results and echo each chirpText
         foreach ($results as $row) {
 
-            echo "<div id=\"tweets$tweetCount\">" . $row["Poster"] . ":     " . $row['chirpText'] . "<br> </div>";
+            echo "<div id=\"tweets$tweetCount\">" . $row['chirpText'] . " </div>";
+            echo "<div id=\"Poster$tweetCount\">" . $row['Poster'] . " </div>";
+            
             $tweetCount += 1;
         }
     } else {
@@ -64,13 +66,10 @@ try {
         <p class="like-button">
             <span class="likeCounter">0</span>
         </p>
-        <nav class="profileBar">
-            <p class="naamInTweet">
-                <?php echo ($_SESSION["user"]) ?>
-            </p>
+        <nav class="profileBar" name="profileBar">
         </nav>
-        <nav class="tweetBox">
-            <p class="textInTweet" name="Chirpify">Plaats uw tekst hier</p>
+        <nav class="tweetBox" name="tweetBox">
+            <p class="textInTweet" name="Chirpify"></p>
         </nav>
     </nav>
 

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
  
         <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30" 
             rows="10"></textarea><br> 
-        <input class="makeChirpifyButton"  type="submit" value="Zet in database"> 
+        <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
  
     </form> 
 
