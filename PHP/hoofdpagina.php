@@ -3,7 +3,6 @@ session_start();
 
 echo "Welkom,  " . $_SESSION["user"] . ".<br>";
 
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -28,12 +27,14 @@ try {
     // Fetch all rows as associative arrays
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    $tweetCount = 0;
     // Check if there are any results
     if ($results) {
         // Loop through the results and echo each chirpText
         foreach ($results as $row) {
 
-            echo "<div id=\"tweets\">" . $row["Poster"] . ":     " . $row['chirpText'] . "<br> </div>";
+            echo "<div id=\"tweets$tweetCount\">" . $row["Poster"] . ":     " . $row['chirpText'] . "<br> </div>";
+            $tweetCount += 1;
         }
     } else {
         echo "No results found.";
@@ -73,9 +74,10 @@ try {
         </nav>
     </nav>
 
-
     </nav>
     <a href="plaatstweet.php">Maak een tweet hier</a>
+
+    <button onclick="moveTweets()">Move the tweets</button>
 
     <script src="../JS/LikeTweet.js"></script>
     <script src="../JS/MakeTweet.js"></script>

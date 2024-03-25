@@ -19,7 +19,6 @@ $username = "root";
 $password = "";
 $dbname = "databasetweeters";
 
-
 // Controleer of het formulier is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Haal de waarden op uit het formulier
@@ -52,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = null;
 }
 ?>
-
     <!-- HTML-formulier -->
     <nav class="signUpBox" >
 

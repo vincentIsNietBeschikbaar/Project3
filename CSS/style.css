@@ -44,6 +44,7 @@
   opacity: 0.7;
   border-radius: 20px;
 }
+
 .WebsiteButton {
   text-decoration: none;
   background-color: seagreen;
@@ -96,7 +97,7 @@
 
 .naamInTweet {
   margin-left: 5%;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .profileBar {
@@ -116,7 +117,7 @@
 }
 
 .fa {
-  color: red !important; 
+  color: red !important;
   font-size: 40px;
   cursor: pointer;
   user-select: none;
@@ -132,13 +133,13 @@
   color: red !important;
 }
 
-.makeChirpifyButton{
+.makeChirpifyButton {
   margin-left: 0;
   margin-top: 5%;
   position: sticky;
 }
 
-.makeChirpifyBox{
+.makeChirpifyBox {
   margin-left: 0;
   margin-top: 5%;
   position: sticky;
@@ -146,11 +147,11 @@
   resize: none;
 }
 
-#tweets{
-  margin-left: 50%;
+#tweets {
+  margin-left: 0;
 
-  display: flex;
+  position: absolute;
 
-  flex-direction: column;
-
+  background-color: aliceblue;
+  padding: 5px;
 }
