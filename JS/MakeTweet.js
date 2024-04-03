@@ -4,6 +4,23 @@ const scrollContainer = document.documentElement; // You may need to adjust this
 
 let increaseAmount = 300;
 
+function fillHearts(unfilledHeart, filledHeart, amountOfHearts) { // function for the like/unlike system
+  unfilledHeart.addEventListener('click', function () {// user likes the tweet
+    console.log(amountOfHearts.innerHTML);
+    amountOfHearts.innerHTML = +amountOfHearts.innerHTML + 1
+    unfilledHeart.style.visibility = "hidden";
+    filledHeart.style.visibility = "visible";
+
+  })
+
+  filledHeart.addEventListener('click', function () {// user unlikes the tweet
+    console.log("Liking the tweet")
+    unfilledHeart.style.visibility = "visible";
+    filledHeart.style.visibility = "hidden";
+
+  })
+}
+
 function makeTweet(tweetText, Poster) {
   let newChirp = chirpToClone.cloneNode(true);
   chirpToClone.after(newChirp);
@@ -18,33 +35,33 @@ function makeTweet(tweetText, Poster) {
 
   // Ensure vertical scrolling is enabled
 
-  let tweetTextElement = newChirp.querySelector(".textInTweet");
+  let tweetTextElement = newChirp.querySelector(".textInTweet"); // calling variables we need to put in the tweet
   let profileBar = newChirp.querySelector(".profileBar")
+
+  let tweetBox = newChirp.querySelector(".tweetBox")
+  let filledHeart = tweetBox.querySelector(".filled_Heart")
+  let unfilledHeart = tweetBox.querySelector(".unfilled_Heart")
+  let likeCounter = tweetBox.querySelector(".likeCounter")
 
   tweetTextElement.appendChild(tweetText);
   profileBar.appendChild(Poster);
+  fillHearts(unfilledHeart, filledHeart, likeCounter);// calling function for the like/unlike system
 }
 
 // tweetcount makes a new id name for each tweet
 let tweetcount = 0
-// the amount to lower a tweet
 
-function moveTweets() {
+while (tweetcount < 10) {
 
-  while (tweetcount < 10) {
+  let currentTweet = document.getElementById('tweets' + tweetcount)
+  let currentPoster = document.getElementById('Poster' + tweetcount)
+  tweetcount += 1;
 
-    let currentTweet = document.getElementById('tweets' + tweetcount)
-    let currentPoster = document.getElementById('Poster'+ tweetcount)
-    tweetcount += 1;
+  currentPoster.style.top = 0;
+  currentPoster.style.zIndex = 5;
+  currentPoster.style.marginLeft = 5 %
 
-    currentPoster.style.top = 0;
-    currentPoster.style.zIndex = 5;
-    currentPoster.style.marginLeft = 5%
-
-    console.log(currentTweet);
-
-    makeTweet(currentTweet, currentPoster);
-
-  }
+  makeTweet(currentTweet, currentPoster);
 }
+
 

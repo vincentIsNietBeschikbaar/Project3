@@ -65,16 +65,6 @@
   color: BROWN;
 }
 
-.homeBar {
-  position: sticky;
-  color: black;
-
-  margin-left: 25vw;
-  padding-right: 40vw;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-}
-
 .textInTweet {
   color: black;
   z-index: 1;
@@ -114,35 +104,44 @@
   position: sticky;
   top: 0;
   left: 0;
+
 }
 
-.fa {
-  color: red !important;
-  font-size: 40px;
-  cursor: pointer;
-  user-select: none;
+.unfilled_Heart{
   position: absolute;
-  inset-block-start: 220px;
-  right: -70px;
+  padding-top: 185px;
+  right: 70%;
 }
 
-.like-button {
+.filled_Heart{
   position: absolute;
-  inset-block-start: 215px;
-  right: -100px;
-  color: red !important;
+  padding-top: 185px;
+  right: 70%;
+  visibility: hidden;
+}
+
+.likeCounter{
+  position: absolute;
+  top: 92%;
+  right: 85%;
 }
 
 .makeChirpifyButton {
   margin-left: 0;
   margin-top: 5%;
-  position: sticky;
+  position: absolute;
 }
 
 .makeChirpifyBox {
   margin-left: 0;
   margin-top: 5%;
-  position: sticky;
+  position: absolute;
   padding: 50px;
   resize: none;
+}
+
+.deleteButton{
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

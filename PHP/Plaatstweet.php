@@ -53,10 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
  
 <body> 
  
-    <nav> 
-        <p class="homeBar">Home</p> 
-    </nav> 
- 
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> 
  
         <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30" 

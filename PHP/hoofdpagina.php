@@ -30,12 +30,14 @@ try {
     $tweetCount = 0;
     // Check if there are any results
     if ($results) {
-        // Loop through the results and echo each chirpText
+        // Loop through the results and echo everything we need for the chirpify
         foreach ($results as $row) {
 
+            // each tweetContent and Poster we loop though gets it's own ID that's generated with the tweetcounter.
+            // ID="tweets1", ID="tweets2", ID="tweets3", ID="tweets4" etc
             echo "<div id=\"tweets$tweetCount\">" . $row['chirpText'] . " </div>";
             echo "<div id=\"Poster$tweetCount\">" . $row['Poster'] . " </div>";
-            
+
             $tweetCount += 1;
         }
     } else {
@@ -62,26 +64,30 @@ try {
 <body>
 
     <nav id="cloneTweet" class="tweet" data-post-id="1">
-        <i onclick="likeTweet(this)" class="fa fa-heart"></i>
-        <p class="like-button">
-            <span class="likeCounter">0</span>
-        </p>
-        <nav class="profileBar" name="profileBar">
-        </nav>
+
+
+        <nav class="profileBar" name="profileBar"></nav>
+
         <nav class="tweetBox" name="tweetBox">
+
+            <img src="../IMG/unfilled_Heart.png" alt="Een niet gevuld hartje" id="unfilledHeart" class="unfilled_Heart"
+                name="unfilled_Heart"></img>
+            <img src="../IMG/filledHeart.png" alt="Een gevuld hartje" id="filledHeart" class="filled_Heart"
+                name="filled_Heart"></img>
+
+
             <p class="textInTweet" name="Chirpify"></p>
+
+            <p class="likeCounter" name="likeCounter">0</p>
+            <button class="deleteButton" id="deleteButton">Verwijder</button>
         </nav>
+
     </nav>
 
     </nav>
     <a href="plaatstweet.php">Maak een tweet hier</a>
 
-    <button onclick="moveTweets()">Move the tweets</button>
-
-    <script src="../JS/LikeTweet.js"></script>
     <script src="../JS/MakeTweet.js"></script>
-
-
 
 </body>
 
