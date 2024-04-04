@@ -35,14 +35,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Stel de PDO-foutmodus in op exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // SQL-query om een nieuw record in te voegen
-        $sql = "INSERT INTO datavantwitter (Naam, Email, Wachtwoord)
-            VALUES ('$Naam', '$Email', '$hashedPassword')";
+        // Check if the username already exists in the database
+        $stmt = $conn->prepare("SELECT * FROM datavantwitter WHERE Naam = :Naam");
+        $stmt->bindParam(':Naam', $Naam);
+        $stmt->execute();
+        $existingUser = $stmt->fetch();
 
-        // Gebruik exec() omdat er geen resultaten worden geretourneerd
-        $conn->exec($sql);
-
-        echo "New record created successfully";
+        if ($existingUser) {
+            echo "Deze gebruikersnaam is reeds in gebruik.";
+        } else {
+            // SQL-query om een nieuw record in te voegen
+            $sql = "INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)";
+            // Prepare statement
+            $stmt = $conn->prepare($sql);
+            // Bind parameters
+            $stmt->bindParam(':Naam', $Naam);
+            $stmt->bindParam(':Email', $Email);
+            $stmt->bindParam(':Wachtwoord', $hashedPassword);
+            // Execute statement
+            $stmt->execute();
+            echo "Uw account is succesvol aangemaakt!";
+        }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
@@ -51,19 +64,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = null;
 }
 ?>
-    <!-- HTML-formulier -->
-    <nav class="signUpBox" >
 
+    <!-- HTML-formulier -->
+        <!-- HTML-formulier -->
+        <nav class="signUpBox" >
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             Gebruikersnaam: <input class="Username" type="text" name="Naam" required maxlength="17"><br>
             Email: <input type="email" class="email" name="Email" required><br>
             Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required minlength="8"><br>
             <input class="submitButton" type="submit" value="Registreren">
         </form>
-
-        </form>
-
     </nav>
+
 
     <a class="LoggingInButton" href="inloggen.php">Inloggen?</a>
 
