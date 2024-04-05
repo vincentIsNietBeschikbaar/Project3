@@ -128,8 +128,9 @@
 
 .makeChirpifyButton {
   margin-left: 0;
-  margin-top: 5%;
+  margin-top: 23%;
   position: absolute;
+  border-radius: 20px;
 }
 
 .makeChirpifyBox {
@@ -145,3 +146,36 @@
   bottom: 0;
   right: 0;
 }
+
+.makeTweetButton{
+  text-decoration: none;
+  background-color: skyblue;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 0%;
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.makeTweetButton:hover {
+  color: black;
+}
+
+.seeTweetsButton{
+  text-decoration: none;
+  background-color: skyblue;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  margin-left: 0%;
+  margin-top: -20px;
+  font-size: 10px;
+}
+
+.seeTweetsButton:hover {
+  color: black;
+}
+

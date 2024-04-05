@@ -85,7 +85,7 @@ try {
     </nav>
 
     </nav>
-    <a href="plaatstweet.php">Maak een tweet hier</a>
+    <a class="makeTweetButton" href="plaatstweet.php">Maak een tweet hier</a>
 
     <script src="../JS/MakeTweet.js"></script>
 

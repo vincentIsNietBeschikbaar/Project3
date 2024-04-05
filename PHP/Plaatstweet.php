@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
  
     </form> 
 
-    <a href="hoofdpagina.php">Bekijk tweets hier</a>
+    <a class="seeTweetsButton" href="hoofdpagina.php">Bekijk tweets hier</a>
 
 </body> 
  
