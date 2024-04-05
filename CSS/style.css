@@ -147,35 +147,21 @@
   right: 0;
 }
 
-.makeTweetButton{
-  text-decoration: none;
-  background-color: skyblue;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 20px;
+.ProfilePicImages{
+  width: 100px;
+  height: 100px;
+
+  border-radius: 100%;
+}
+
+.imageLink{
+  visibility: hidden;
+}
+
+.profilePicture{
   position: absolute;
-  margin-left: 0%;
-  margin-top: 10px;
-  font-size: 10px;
+  top: 20%;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
 }
-
-.makeTweetButton:hover {
-  color: black;
-}
-
-.seeTweetsButton{
-  text-decoration: none;
-  background-color: skyblue;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  border-radius: 20px;
-  position: absolute;
-  margin-left: 0%;
-  margin-top: -20px;
-  font-size: 10px;
-}
-
-.seeTweetsButton:hover {
-  color: black;
-}
-

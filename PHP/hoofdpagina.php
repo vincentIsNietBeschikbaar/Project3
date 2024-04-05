@@ -1,22 +1,28 @@
 <?php
 session_start();
 
-echo "Welkom,  " . $_SESSION["user"] . ".<br>";
+echo "          Welkom,  " . $_SESSION["user"] . ".<br>";
 
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "databaseBerichten";
+$userdbName = "databasetweeters";
 
 try {
     // Create a new PDO instance
-    $conn = new PDO("mysql:host=localhost;dbname=$dbname", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // The second Conn is to get the profile picture the user selected
+    $conn2 = new PDO("mysql:host=$servername;dbname=$userdbName", $username, $password);
 
     // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
     // SQL query to retrieve records
-    $sql = "SELECT * FROM berichten ORDER BY ID DESC LIMIT 10";
+    // the last number is the amount of tweets that SQL generates
+    $sql = "SELECT chirpText, Poster FROM berichten ORDER BY ID DESC LIMIT 15";
 
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
@@ -27,19 +33,28 @@ try {
     // Fetch all rows as associative arrays
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // Fetch the profielFotoLink separately
+    $profielFotoLinkSql = "SELECT profielFotoLink FROM datavantwitter WHERE Naam = '" . $_SESSION['user'] . "'";     
+    $profielFotoLinkStmt = $conn2->prepare($profielFotoLinkSql);
+    $profielFotoLinkStmt->execute();
+    $profielFotoLinkRow = $profielFotoLinkStmt->fetch(PDO::FETCH_ASSOC);
+    $profielFotoLink = $profielFotoLinkRow['profielFotoLink'];
+
     $tweetCount = 0;
     // Check if there are any results
     if ($results) {
         // Loop through the results and echo everything we need for the chirpify
+
         foreach ($results as $row) {
 
-            // each tweetContent and Poster we loop though gets it's own ID that's generated with the tweetcounter.
+            // each tweetContent and Poster we loop through gets its own ID that's generated with the tweetcounter.
             // ID="tweets1", ID="tweets2", ID="tweets3", ID="tweets4" etc
             echo "<div id=\"tweets$tweetCount\">" . $row['chirpText'] . " </div>";
             echo "<div id=\"Poster$tweetCount\">" . $row['Poster'] . " </div>";
-
             $tweetCount += 1;
         }
+
+        // Output the profielFotoLink outside the loop
     } else {
         echo "No results found.";
     }
@@ -47,8 +62,8 @@ try {
     // Handle errors gracefully
     echo "Error: " . $e->getMessage();
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +78,16 @@ try {
 
 <body>
 
-    <nav id="cloneTweet" class="tweet" data-post-id="1">
+<img class="profilePicture" src="<?php
+    if ($profielFotoLink){
+        echo $profielFotoLink;
+    }?>" alt="De profielfoto">
 
+
+
+    <nav id="ProfilePictureParent"></nav>
+
+    <nav id="cloneTweet" class="tweet" data-post-id="1">
 
         <nav class="profileBar" name="profileBar"></nav>
 
@@ -85,9 +108,14 @@ try {
     </nav>
 
     </nav>
-    <a class="makeTweetButton" href="plaatstweet.php">Maak een tweet hier</a>
+    <a class="makeTweetLink" href="plaatstweet.php">Maak een tweet hier</a>
+    <br>
+    <a class="makeProfilePicLink" href="ProfilePhoto.php">Verander uw profielFoto hier</a>
 
-    <script src="../JS/MakeTweet.js"></script>
+    <script src="../JS/MakeTweet.js? <?php echo filemtime('../JS/MakeTweet.js'); ?>"></script>
+    <script src="../JS/selectProfilePic.js? <?php echo filemtime('../JS/selectProfilePic.js'); ?>"></script>
+
+
 
 </body>
 

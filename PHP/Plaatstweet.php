@@ -61,7 +61,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
  
     </form> 
 
+<<<<<<< Updated upstream
     <a class="seeTweetsButton" href="hoofdpagina.php">Bekijk tweets hier</a>
+=======
+    <a href="hoofdpagina.php">Bekijk tweets hier</a>
+    <a href="ProfilePhoto.php">Selecteer een profielFoto</a>
+>>>>>>> Stashed changes
 
 </body> 
  

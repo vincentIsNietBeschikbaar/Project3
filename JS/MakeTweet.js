@@ -51,7 +51,7 @@ function makeTweet(tweetText, Poster) {
 // tweetcount makes a new id name for each tweet
 let tweetcount = 0
 
-while (tweetcount < 10) {
+while (tweetcount < 15) {
 
   let currentTweet = document.getElementById('tweets' + tweetcount)
   let currentPoster = document.getElementById('Poster' + tweetcount)
@@ -63,5 +63,3 @@ while (tweetcount < 10) {
 
   makeTweet(currentTweet, currentPoster);
 }
-
-
