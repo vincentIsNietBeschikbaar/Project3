@@ -42,6 +42,7 @@ function makeTweet(tweetText, Poster) {
   let filledHeart = tweetBox.querySelector(".filled_Heart")
   let unfilledHeart = tweetBox.querySelector(".unfilled_Heart")
   let likeCounter = tweetBox.querySelector(".likeCounter")
+  
 
   tweetTextElement.appendChild(tweetText);
   profileBar.appendChild(Poster);

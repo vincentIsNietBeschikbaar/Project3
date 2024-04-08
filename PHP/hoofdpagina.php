@@ -83,8 +83,6 @@ try {
         echo $profielFotoLink;
     }?>" alt="De profielfoto">
 
-
-
     <nav id="ProfilePictureParent"></nav>
 
     <nav id="cloneTweet" class="tweet" data-post-id="1">
@@ -108,14 +106,15 @@ try {
     </nav>
 
     </nav>
+    <br>
+    <br>
     <a class="makeTweetLink" href="plaatstweet.php">Maak een tweet hier</a>
+    <br>
     <br>
     <a class="makeProfilePicLink" href="ProfilePhoto.php">Verander uw profielFoto hier</a>
 
     <script src="../JS/MakeTweet.js? <?php echo filemtime('../JS/MakeTweet.js'); ?>"></script>
     <script src="../JS/selectProfilePic.js? <?php echo filemtime('../JS/selectProfilePic.js'); ?>"></script>
-
-
 
 </body>
 

@@ -99,13 +99,6 @@
   z-index: -1;
 }
 
-.actions {
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  left: 0;
-
-}
 
 .unfilled_Heart{
   position: absolute;
@@ -187,7 +180,11 @@
 
 a{
   text-decoration: none;
-  color: black;
+  padding: 5px;
+  background-color: rosybrown;
+  border-radius: 15px;
+
+  color: white;
 }
 
 a:hover{
