@@ -109,20 +109,20 @@
 
 .unfilled_Heart{
   position: absolute;
-  padding-top: 185px;
+  padding-top: 187px;
   right: 70%;
 }
 
 .filled_Heart{
   position: absolute;
-  padding-top: 185px;
+  padding-top: 188px;
   right: 70%;
   visibility: hidden;
 }
 
 .likeCounter{
   position: absolute;
-  top: 92%;
+  top: 97%;
   right: 85%;
 }
 
@@ -182,6 +182,15 @@
   top: 20%;
   height: 100px;
   width: 100px;
+  border-radius: 100%;
+}
+
+.tweetProfilePicture{
+  position: absolute;
+margin-left: 150px;
+margin-top: 3px;
+  height: 35px;
+  width: 35px;
   border-radius: 100%;
 }
 
