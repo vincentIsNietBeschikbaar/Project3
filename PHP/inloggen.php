@@ -1,9 +1,12 @@
 <?php
-    session_start();
+session_start();
 ?>
 
+<head>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
 <body>
-<link rel="stylesheet" href="../CSS/style.css">
     <?php
 
     try {
@@ -23,11 +26,10 @@
             if ($query->rowCount() == 1) {
                 $result = $query->fetch(PDO::FETCH_ASSOC);
 
-
                 if (password_verify($Wachtwoord, $result["Wachtwoord"])) {
                     echo "Hallo, " . $username;
                     startSession($username);
-                    
+
                 } else {
                     echo "Wachtwoord of gebruikersnaam is onjuist";
                 }
@@ -45,7 +47,8 @@
     }
 
 
-    function startSession($user){
+    function startSession($user)
+    {
         $_SESSION["user"] = $user;
     }
     ?>

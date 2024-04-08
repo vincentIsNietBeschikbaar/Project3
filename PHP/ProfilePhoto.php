@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 
     echo "<pre>" . print_r($_POST, true) . "</pre>";
 
-    $imageLink = $_POST['imageLink'];
+    $imageLink = $_POST['imageLink'];// the path to the selected profilePicture
 
     try {
 
