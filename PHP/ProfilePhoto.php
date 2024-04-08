@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 
     <form method="post" action="">
         <textarea class="imageLink" name="imageLink" id="imageLink" cols="30" rows="10"></textarea>
-        <input class="makeChirpifyButton" type="submit" value="Selecteer">
+        <input class="choosePhotoButton" type="submit" value="Selecteer">
     </form>
 
     <h1>Selecteer uw profielFoto</h1>
