@@ -86,10 +86,14 @@ try {
     <nav id="ProfilePictureParent"></nav>
 
     <nav id="cloneTweet" class="tweet" data-post-id="1">
-    <img class="tweetProfilePicture" src="<?php
-    if ($profielFotoLink){
-        echo $profielFotoLink;
-    }?>" alt="De profielfoto">
+    <img class="tweetProfilePicture" src="
+    <?php 
+session_start();
+$_SESSION["profielFotoLink"] = "your_value_here";
+echo $_SESSION["profielFotoLink"];
+?>
+
+      alt="De profielfoto">
         <nav class="profileBar" name="profileBar"></nav>
 
         <nav class="tweetBox" name="tweetBox">

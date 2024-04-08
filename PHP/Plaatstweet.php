@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 </head> 
  
 <body> 
- 
+ <img class="cuteDuck" src="../IMG/41ZePP1+wqL._AC_UF894,1000_QL80_.jpg" alt="Als je dit ziet, is er denk ik iets fout, er zou hier oorspronkelijk een eend moeten staan..">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> 
  
         <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30" 
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
  
     </form> 
-
+    
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
     <a href="ProfilePhoto.php">Selecteer een profielFoto</a>
 
