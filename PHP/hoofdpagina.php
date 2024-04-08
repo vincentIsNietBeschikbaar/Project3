@@ -118,7 +118,7 @@ echo $_SESSION["profielFotoLink"];
     <a class="makeTweetLink" href="plaatstweet.php">Maak een tweet hier</a>
     <br>
     <br>
-    <a class="makeProfilePicLink" href="ProfilePhoto.php">Verander uw profielFoto hier</a>
+    <a class="makeProfilePicLink" href="profilePicture.php">Verander uw profielFoto hier</a>
 
     <script src="../JS/MakeTweet.js? <?php echo filemtime('../JS/MakeTweet.js'); ?>"></script>
     <script src="../JS/selectProfilePic.js? <?php echo filemtime('../JS/selectProfilePic.js'); ?>"></script>

@@ -15,7 +15,7 @@ session_start();
         if (isset($_POST['Inloggen'])) {
 
             $username = filter_input(INPUT_POST, "Naam", FILTER_SANITIZE_STRING);
-            $Wachtwoord = $_POST['Wachtwoord'];
+            $Password = $_POST['Wachtwoord'];
 
             $query = $db->prepare("SELECT Wachtwoord FROM datavantwitter WHERE Naam = :user");
 
@@ -26,7 +26,7 @@ session_start();
             if ($query->rowCount() == 1) {
                 $result = $query->fetch(PDO::FETCH_ASSOC);
 
-                if (password_verify($Wachtwoord, $result["Wachtwoord"])) {
+                if (password_verify($Password, $result["Wachtwoord"])) {
                     echo "Hallo, " . $username;
                     startSession($username);
 

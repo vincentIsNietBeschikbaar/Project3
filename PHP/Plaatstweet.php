@@ -59,10 +59,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
             rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
  
+<<<<<<< HEAD
     </form> 
     
+=======
+    </form>
+
+     <button id="addImage" class="addImageButton" >Voeg een afbeelding toe</button> <br> 
+
+>>>>>>> 8809048caafa5e456f7933d639529239b5c9464e
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
-    <a href="ProfilePhoto.php">Selecteer een profielFoto</a>
+    <a href="profilePicture.php">Selecteer een profielFoto</a>
 
 </body> 
  
