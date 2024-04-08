@@ -10,14 +10,12 @@ function fillHearts(unfilledHeart, filledHeart, amountOfHearts) { // function fo
     amountOfHearts.innerHTML = +amountOfHearts.innerHTML + 1
     unfilledHeart.style.visibility = "hidden";
     filledHeart.style.visibility = "visible";
-
   })
 
   filledHeart.addEventListener('click', function () {// user unlikes the tweet
     console.log("Liking the tweet")
     unfilledHeart.style.visibility = "visible";
     filledHeart.style.visibility = "hidden";
-
   })
 }
 

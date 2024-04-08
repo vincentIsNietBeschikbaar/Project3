@@ -198,3 +198,9 @@ a{
 a:hover{
   color: skyblue;
 }
+
+.addImageButton{
+  position: absolute;
+  left: 30%;
+  bottom: 58%;
+}
