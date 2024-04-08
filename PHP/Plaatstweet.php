@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
     </form> 
 
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
-    <a href="ProfilePhoto.php">Selecteer een profielFoto</a>
+    <a href="profilePicture.php">Selecteer een profielFoto</a>
 
 </body> 
  
