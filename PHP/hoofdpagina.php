@@ -34,7 +34,7 @@ try {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Fetch the profielFotoLink separately
-    $profielFotoLinkSql = "SELECT profielFotoLink FROM datavantwitter WHERE Naam = '" . $_SESSION['user'] . "'";     
+    $profielFotoLinkSql = "SELECT profielFotoLink FROM datavantwitter WHERE Naam = '" . $_SESSION['user'] . "'";
     $profielFotoLinkStmt = $conn2->prepare($profielFotoLinkSql);
     $profielFotoLinkStmt->execute();
     $profielFotoLinkRow = $profielFotoLinkStmt->fetch(PDO::FETCH_ASSOC);
@@ -79,22 +79,14 @@ try {
 
 <body>
 
-<img class="profilePicture" src="<?php
-    if ($profielFotoLink){
+    <img class="profilePicture" src="<?php
+    if ($profielFotoLink) {
         echo $profielFotoLink;
-    }?>" alt="De profielfoto">
+    } ?>" alt="De profielfoto">
 
     <nav id="ProfilePictureParent"></nav>
 
     <nav id="cloneTweet" class="tweet" data-post-id="1">
-    <img class="tweetProfilePicture" src="
-    <?php 
-session_start();
-$_SESSION["profielFotoLink"] = "your_value_here";
-echo $_SESSION["profielFotoLink"];
-?>
-
-      alt="De profielfoto">
         <nav class="profileBar" name="profileBar"></nav>
 
         <nav class="tweetBox" name="tweetBox">
@@ -108,7 +100,6 @@ echo $_SESSION["profielFotoLink"];
 
             <nav class="likeCounter" name="likeCounter"></nav>
             <button class="deleteButton" id="deleteButton">Verwijder</button>
-            <button class="linkToComment" >Reageer hierop</button>
         </nav>
 
 
