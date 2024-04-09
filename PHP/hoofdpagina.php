@@ -104,13 +104,13 @@ echo $_SESSION["profielFotoLink"];
             <img src="../IMG/filledHeart.png" alt="Een gevuld hartje" id="filledHeart" class="filled_Heart"
                 name="filled_Heart"></img>
 
-
             <p class="textInTweet" name="Chirpify"></p>
 
-            <nav class="likeCounter" name="likeCounter"  > </nav>
             <nav class="likeCounter" name="likeCounter"></nav>
             <button class="deleteButton" id="deleteButton">Verwijder</button>
         </nav>
+
+        <button class="linkToComment" >Reageer hierop</button>
 
     </nav>
 

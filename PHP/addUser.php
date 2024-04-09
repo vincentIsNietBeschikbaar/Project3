@@ -78,6 +78,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <a class="LoggingInButton" href="inloggen.php">Inloggen?</a>
-
 </body>
 <html>

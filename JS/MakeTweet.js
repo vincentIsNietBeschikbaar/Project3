@@ -42,8 +42,9 @@ function makeTweet(tweetText, Poster, currentamountofLikes) {
 
   tweetTextElement.appendChild(tweetText);
   profileBar.appendChild(Poster);
-  likeCounter.appendChild(currentamountofLikes);
-  fillHearts(unfilledHeart, filledHeart, likeCounter);// calling function for the like/unlike system
+  likeCounter.appendChild(currentamountofLikes)
+  
+  fillHearts(unfilledHeart, filledHeart, currentamountofLikes);// calling function for the like/unlike system
 }
 
 // tweetcount makes a new id name for each tweet

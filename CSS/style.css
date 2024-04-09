@@ -208,13 +208,10 @@ a:hover{
 }
 .addImageButton{
   position: absolute;
-  left: 24%;
-  bottom: 85%;
-  cursor: pointer;
-  text-decoration: none;
-  padding: 5px;
-  background-color: rosybrown;
-  color: white;
-  border-radius: 15px;
-
+  left: 30%;
+  bottom: 58%;
 }
+
+.likeCounter{
+  position: absolute;
+  margin-top: 5px;}
