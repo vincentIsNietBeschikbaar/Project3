@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
     $password = ""; 
     $dbname = "databaseBerichten"; 
 
-    $amountOfLikes = 5000; 
+    $amountOfLikes = 0; 
     $originalPoster = $_SESSION["user"]; 
     $chirpifyText = $_POST['makeChirpifyBox']; 
 
@@ -52,22 +52,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 </head> 
  
 <body> 
- <img class="cuteDuck" src="../IMG/41ZePP1+wqL._AC_UF894,1000_QL80_.jpg" alt="Als je dit ziet, is er denk ik iets fout, er zou hier oorspronkelijk een eend moeten staan..">
+ <img class="cuteDuck" src="../IMG/chirpifyLogo.png" alt="Als je dit ziet, is er denk ik iets fout, er zou hier oorspronkelijk een eend moeten staan..">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> 
  
         <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30" 
             rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
  
-<<<<<<< HEAD
     </form> 
     
-=======
     </form>
 
-     <button id="addImage" class="addImageButton" >Voeg een afbeelding toe</button> <br> 
+     <input type="file" class="addImageButton">
 
->>>>>>> 8809048caafa5e456f7933d639529239b5c9464e
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
     <a href="profilePicture.php">Selecteer een profielFoto</a>
 

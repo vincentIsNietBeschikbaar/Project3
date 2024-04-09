@@ -19,7 +19,7 @@ function fillHearts(unfilledHeart, filledHeart, amountOfHearts) { // function fo
   })
 }
 
-function makeTweet(tweetText, Poster) {
+function makeTweet(tweetText, Poster, currentamountofLikes) {
   let newChirp = chirpToClone.cloneNode(true);
   chirpToClone.after(newChirp);
 
@@ -32,18 +32,17 @@ function makeTweet(tweetText, Poster) {
   // Scroll to the bottom of the page after adding a new chirp
 
   // Ensure vertical scrolling is enabled
-
   let tweetTextElement = newChirp.querySelector(".textInTweet"); // calling variables we need to put in the tweet
   let profileBar = newChirp.querySelector(".profileBar")
 
   let tweetBox = newChirp.querySelector(".tweetBox")
   let filledHeart = tweetBox.querySelector(".filled_Heart")
   let unfilledHeart = tweetBox.querySelector(".unfilled_Heart")
-  let likeCounter = tweetBox.querySelector(".likeCounter")
-  
+  let likeCounter = tweetBox.querySelector(".likeCounter")  
 
   tweetTextElement.appendChild(tweetText);
   profileBar.appendChild(Poster);
+  likeCounter.appendChild(currentamountofLikes);
   fillHearts(unfilledHeart, filledHeart, likeCounter);// calling function for the like/unlike system
 }
 
@@ -54,11 +53,12 @@ while (tweetcount < 15) {
 
   let currentTweet = document.getElementById('tweets' + tweetcount)
   let currentPoster = document.getElementById('Poster' + tweetcount)
+  let currentamountofLikes = document.getElementById('aantalLikes' + tweetcount) 
   tweetcount += 1;
 
   currentPoster.style.top = 0;
   currentPoster.style.zIndex = 5;
   currentPoster.style.marginLeft = 5 %
 
-  makeTweet(currentTweet, currentPoster);
+  makeTweet(currentTweet, currentPoster, currentamountofLikes);
 }

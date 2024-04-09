@@ -199,17 +199,22 @@ a:hover{
   color: skyblue;
 }
 
-<<<<<<< HEAD
 .cuteDuck{
-  width: 100px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   position: absolute;
-  margin-left: 400px;
-  margin-top: 150px;
-=======
+  margin-left: 340px;
+  margin-top: 134px;
+}
 .addImageButton{
   position: absolute;
-  left: 30%;
-  bottom: 58%;
->>>>>>> 8809048caafa5e456f7933d639529239b5c9464e
+  left: 24%;
+  bottom: 85%;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+  background-color: rosybrown;
+  color: white;
+  border-radius: 15px;
+
 }

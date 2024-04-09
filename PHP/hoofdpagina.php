@@ -22,7 +22,7 @@ try {
 
     // SQL query to retrieve records
     // the last number is the amount of tweets that SQL generates
-    $sql = "SELECT chirpText, Poster FROM berichten ORDER BY ID DESC LIMIT 15";
+    $sql = "SELECT chirpText, Poster, aantalLikes FROM berichten ORDER BY ID DESC LIMIT 15";
 
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
@@ -51,6 +51,7 @@ try {
             // ID="tweets1", ID="tweets2", ID="tweets3", ID="tweets4" etc
             echo "<div id=\"tweets$tweetCount\">" . $row['chirpText'] . " </div>";
             echo "<div id=\"Poster$tweetCount\">" . $row['Poster'] . " </div>";
+            echo "<div id=\"aantalLikes$tweetCount\">" . $row['aantalLikes'] . " </div>";
             $tweetCount += 1;
         }
 
@@ -106,7 +107,8 @@ echo $_SESSION["profielFotoLink"];
 
             <p class="textInTweet" name="Chirpify"></p>
 
-            <p class="likeCounter" name="likeCounter">0</p>
+            <nav class="likeCounter" name="likeCounter"  > </nav>
+            <nav class="likeCounter" name="likeCounter"></nav>
             <button class="deleteButton" id="deleteButton">Verwijder</button>
         </nav>
 
