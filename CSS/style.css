@@ -214,4 +214,12 @@ a:hover{
 
 .likeCounter{
   position: absolute;
-  margin-top: 5px;}
+  margin-top: 5px;
+}
+
+.linkToComment{
+  margin-top: 102%;
+  margin-left: 75%;
+  position: relative;
+  z-index: 51;
+}

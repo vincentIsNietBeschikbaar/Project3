@@ -108,9 +108,10 @@ echo $_SESSION["profielFotoLink"];
 
             <nav class="likeCounter" name="likeCounter"></nav>
             <button class="deleteButton" id="deleteButton">Verwijder</button>
+            <button class="linkToComment" >Reageer hierop</button>
         </nav>
 
-        <button class="linkToComment" >Reageer hierop</button>
+
 
     </nav>
 
