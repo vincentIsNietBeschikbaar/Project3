@@ -52,7 +52,7 @@ function makeTweet(tweetText, Poster, currentamountofLikes, deleteButton) {
     deleteTweet(deleteButton, Poster);
   }
 
-  if (Poster.innerHTML == "JeanPierreDeDerde "){
+  if (Poster.innerHTML == "JeanPierreDeDerde " || Poster.InnherHTML == "Kim Jong Un" || Poster.InnherHTML  == "x Æ A-12" ){// if the user is a moderator, it's tweets gets some special CSS styling
     profileBar.style.backgroundColor = "rosybrown"
     tweetText.style.fontFamily = "Papyrus"
   }

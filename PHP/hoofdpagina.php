@@ -47,7 +47,6 @@ try {
     foreach ($adminUserIDs as $adminID) { // if the user is an admin, the deleteButton is send to javascript
         if ($ID == $adminID) {
             $userIsAdmin = true;
-
         }
     }
 
