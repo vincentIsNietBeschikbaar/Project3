@@ -63,10 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
     
     </form>
 
-<<<<<<< Updated upstream
-     <input type="file" class="addImageButton">
-=======
->>>>>>> Stashed changes
 
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
     <a href="profilePicture.php">Selecteer een profielFoto</a>
