@@ -19,7 +19,13 @@ function fillHearts(unfilledHeart, filledHeart, amountOfHearts) { // function fo
   })
 }
 
-function makeTweet(tweetText, Poster, currentamountofLikes) {
+function deleteTweet(deleteButton) {
+    deleteButton.addEventListener('click', function () {// moderator deletes a tweet
+    deleteButton.parentElement.parentElement.remove();
+  })
+}
+
+function makeTweet(tweetText, Poster, currentamountofLikes, deleteButton) {
   let newChirp = chirpToClone.cloneNode(true);
   chirpToClone.after(newChirp);
 
@@ -38,12 +44,17 @@ function makeTweet(tweetText, Poster, currentamountofLikes) {
   let tweetBox = newChirp.querySelector(".tweetBox")
   let filledHeart = tweetBox.querySelector(".filled_Heart")
   let unfilledHeart = tweetBox.querySelector(".unfilled_Heart")
-  let likeCounter = tweetBox.querySelector(".likeCounter")  
+  let likeCounter = tweetBox.querySelector(".likeCounter")
+
+  if (deleteButton) {// if the user is an admin, the deleteButton shows up and is parented under tweetbox
+    tweetBox.appendChild(deleteButton);
+    deleteTweet(deleteButton);
+  }
 
   tweetTextElement.appendChild(tweetText);
   profileBar.appendChild(Poster);
   likeCounter.appendChild(currentamountofLikes)
-  
+
   fillHearts(unfilledHeart, filledHeart, currentamountofLikes);// calling function for the like/unlike system
 }
 
@@ -54,12 +65,19 @@ while (tweetcount < 15) {
 
   let currentTweet = document.getElementById('tweets' + tweetcount)
   let currentPoster = document.getElementById('Poster' + tweetcount)
-  let currentamountofLikes = document.getElementById('aantalLikes' + tweetcount) 
+  let currentamountofLikes = document.getElementById('aantalLikes' + tweetcount)
+
   tweetcount += 1;
 
   currentPoster.style.top = 0;
   currentPoster.style.zIndex = 5;
-  currentPoster.style.marginLeft = 5 %
+  currentPoster.style.marginLeft = 5;
 
-  makeTweet(currentTweet, currentPoster, currentamountofLikes);
+  if (document.getElementById('deleteButton' + tweetcount)) {
+    let deleteButton = document.getElementById('deleteButton' + tweetcount)
+    makeTweet(currentTweet, currentPoster, currentamountofLikes, deleteButton);
+
+  } else {
+    makeTweet(currentTweet, currentPoster, currentamountofLikes);
+  }
 }

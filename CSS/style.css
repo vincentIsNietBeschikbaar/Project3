@@ -152,12 +152,6 @@
   resize: none;
 }
 
-.deleteButton{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
 .ProfilePicImages{
   width: 100px;
   height: 100px;
@@ -206,6 +200,7 @@ a:hover{
   margin-left: 340px;
   margin-top: 134px;
 }
+
 .addImageButton{
   position: absolute;
   left: 30%;
@@ -215,4 +210,14 @@ a:hover{
 .likeCounter{
   position: absolute;
   margin-top: 5px;
+}
+
+.deleteButton{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.tweetText{
+  position: absolute;
 }
