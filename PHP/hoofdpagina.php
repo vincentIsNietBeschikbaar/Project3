@@ -48,8 +48,6 @@ try {
         if ($ID == $adminID) {
             $userIsAdmin = true;
 
-        } else {
-            echo "Normie";
         }
     }
 

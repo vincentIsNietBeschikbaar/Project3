@@ -19,9 +19,10 @@ function fillHearts(unfilledHeart, filledHeart, amountOfHearts) { // function fo
   })
 }
 
-function deleteTweet(deleteButton) {
+function deleteTweet(deleteButton, Naam) {
     deleteButton.addEventListener('click', function () {// moderator deletes a tweet
     deleteButton.parentElement.parentElement.remove();
+
   })
 }
 
@@ -48,7 +49,12 @@ function makeTweet(tweetText, Poster, currentamountofLikes, deleteButton) {
 
   if (deleteButton) {// if the user is an admin, the deleteButton shows up and is parented under tweetbox
     tweetBox.appendChild(deleteButton);
-    deleteTweet(deleteButton);
+    deleteTweet(deleteButton, Poster);
+  }
+
+  if (Poster.innerHTML == "JeanPierreDeDerde "){
+    profileBar.style.backgroundColor = "rosybrown"
+    tweetText.style.fontFamily = "Papyrus"
   }
 
   tweetTextElement.appendChild(tweetText);
