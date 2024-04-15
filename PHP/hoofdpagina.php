@@ -42,7 +42,7 @@ try {
 
     $userIsAdmin = false;
     $ID = $profielFotoLinkRow['ID'];
-    $adminUserIDs = array(19,90219085,90219083);// these users are admins
+    $adminUserIDs = array(19,90219085,90219083,90219101);// these users are admins
 
     foreach ($adminUserIDs as $adminID) { // if the user is an admin, the deleteButton is send to javascript
         if ($ID == $adminID) {
