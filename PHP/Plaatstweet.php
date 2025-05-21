@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-echo "Welkom,  " . $_SESSION["user"] . ".<br>"; 
+echo "Welkom,  " . $_SESSION["user"] . ".<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pressed
     $servername = "localhost"; 
@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 
     $amountOfLikes = 0; 
     $originalPoster = $_SESSION["user"]; 
-    $chirpifyText = $_POST['makeChirpifyBox']; 
+    $chirpifyText = $_POST['makeChirpifyBox'];
 
-    try { 
+    try {     
         // Create a PDO connection 
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password); 
         // Set the PDO error mode to exception 
@@ -59,14 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
             rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
         <input type="file">
-    </form> 
-    
     </form>
-
-
+    </form>
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
     <a href="profilePicture.php">Selecteer een profielFoto</a>
-
 </body> 
- 
 </html>

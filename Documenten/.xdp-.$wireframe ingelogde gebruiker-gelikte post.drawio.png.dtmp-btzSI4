@@ -1,0 +1,28 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" scale="1" border="0" version="27.0.5">
+  <diagram name="Pagina-1" id="zB9HmuzeZVjDK_kF2yNA">
+    <mxGraphModel dx="1360" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QBZt0JNe4HWxU5lZ31Xq-5" value="www.churpify.net/profile" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="140" y="270" width="1120" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="YAL7qmfx202Y2cyzev5e-4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="QBZt0JNe4HWxU5lZ31Xq-5">
+          <mxGeometry x="300" y="60" width="440" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="YAL7qmfx202Y2cyzev5e-3" value="" style="shape=sumEllipse;perimeter=ellipsePerimeter;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="QBZt0JNe4HWxU5lZ31Xq-5">
+          <mxGeometry x="440" y="80" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="YAL7qmfx202Y2cyzev5e-5" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Doorsnee Churpify Gebruiker&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QBZt0JNe4HWxU5lZ31Xq-5">
+          <mxGeometry x="320" y="240" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YAL7qmfx202Y2cyzev5e-7" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;i&gt;Gebruiker sinds: &lt;/i&gt;morgen&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QBZt0JNe4HWxU5lZ31Xq-5">
+          <mxGeometry x="330" y="270" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="YAL7qmfx202Y2cyzev5e-10" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Volgers: x&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Re-chirps: x&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Volgend: x&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="QBZt0JNe4HWxU5lZ31Xq-5">
+          <mxGeometry x="320" y="300" width="400" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

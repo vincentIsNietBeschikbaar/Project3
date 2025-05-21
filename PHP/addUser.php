@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registratieformulier</title>
-
-    <link rel="stylesheet" href="../CSS/style.css">
-</head>
-
-<body>
-
 <?php
 // Databaseconfiguratie
 $servername = "localhost";
@@ -59,24 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
-
     // Sluit de databaseverbinding
     $conn = null;
 }
 ?>
 
-    <!-- HTML-formulier -->
-        <!-- HTML-formulier -->
-        <nav class="signUpBox" >
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            Gebruikersnaam: <input class="Username" type="text" name="Naam" required maxlength="17"><br>
-            Email: <input type="email" class="email" name="Email" required><br>
-            Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required minlength="8"><br>
-            <input class="submitButton" type="submit" value="Registreren">
-        </form>
-    </nav>
-
-
-    <a class="LoggingInButton" href="inloggen.php">Inloggen?</a>
 </body>
 <html>
