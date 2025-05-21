@@ -83,14 +83,26 @@ class tweeters{
 
     public static function makeAccount($Naam, $Email, $Wachtwoord) {
         global $pdo;
-        $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT);
 
-        $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
+
+        $stmt = $pdo->prepare("SELECT * FROM datavantwitter WHERE Naam = :Naam");
         $stmt->bindParam(':Naam', $Naam);
-        $stmt->bindParam(':Email', $Email);
-        $stmt->bindParam(':Wachtwoord', $hashedPassword);
+        $stmt->execute();
+        $existingUser = $stmt->fetch();
+        if ($existingUser){
+            echo "Deze gebruikersnaam is reeds in gebruik.";
+        }else{
 
-        return $stmt->execute();
+            $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT);
+
+            $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
+            $stmt->bindParam(':Naam', $Naam);
+            $stmt->bindParam(':Email', $Email);
+            $stmt->bindParam(':Wachtwoord', $hashedPassword);
+            return $stmt->execute();
+
+            
+        }
     }
 
 

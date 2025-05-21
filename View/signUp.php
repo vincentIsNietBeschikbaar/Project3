@@ -18,6 +18,5 @@
     </nav>
 
     <a class="LoggingInButton" href="inloggen.php">Inloggen?</a>
-
 </body>
 </html>
