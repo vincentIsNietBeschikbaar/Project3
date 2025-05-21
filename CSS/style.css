@@ -74,6 +74,7 @@
   position: absolute;
   left: 30%;
   top: 0;
+  margin-top: 1vh;
 }
 
 .tweetBox {
@@ -93,7 +94,7 @@
   position: absolute;
   width: 30vw;
   height: 30vh;
-  margin-bottom: 20vh;
+  margin-bottom: 2vh;
   background-color: skyblue;
   z-index: -1;
 }
@@ -235,4 +236,9 @@ a:hover{
 
 .tweetText{
   position: absolute;
+}
+
+.ChurpifyLogo{
+  width: 150px;
+  height: 150px;
 }
