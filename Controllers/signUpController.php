@@ -16,7 +16,7 @@ class signUp{
             $status = tweeters::makeAccount($Naam,$Email,$Wachtwoord);
 
             if ($status){
-                
+                echo "account is aangemaakt. U kunt nu naar de inlogpagina";
             }
 
         }

@@ -84,28 +84,23 @@ class tweeters{
     public static function makeAccount($Naam, $Email, $Wachtwoord) {
         global $pdo;
 
-
         $stmt = $pdo->prepare("SELECT * FROM datavantwitter WHERE Naam = :Naam");
         $stmt->bindParam(':Naam', $Naam);
         $stmt->execute();
         $existingUser = $stmt->fetch();
-        if ($existingUser){
+        if ($existingUser){// if the username already exists
             echo "Deze gebruikersnaam is reeds in gebruik.";
         }else{
 
-            $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT);
+            $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT); // hashing the password
 
             $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
             $stmt->bindParam(':Naam', $Naam);
             $stmt->bindParam(':Email', $Email);
             $stmt->bindParam(':Wachtwoord', $hashedPassword);
             return $stmt->execute();
-
-            
         }
     }
-
-
 
     //Get the latest added story, returns new instance.
     public static function getLatestNewsStory(){
