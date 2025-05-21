@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 
-echo "Welkom,  " . $_SESSION["user"] . ".<br>"; 
+echo "Welkom,  " . $_SESSION["user"] . ".<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pressed
     $servername = "localhost"; 
@@ -59,12 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
             rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
         <input type="file">
-    </form> 
     </form>
-
+    </form>
     <a href="hoofdpagina.php">Bekijk tweets hier</a>
     <a href="profilePicture.php">Selecteer een profielFoto</a>
-
 </body> 
- 
 </html>

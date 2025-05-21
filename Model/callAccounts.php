@@ -20,7 +20,7 @@ class tweeters{
     public static function initializeDatabase(){
         global $pdo;
         $pdo->prepare(
-            "CREATE TABLE IF NOT EXISTS news (
+            "CREATE TABLE IF NOT EXISTS datavantwitter (
             ID INT AUTO_INCREMENT PRIMARY KEY,
             Naam VARCHAR(30) NOT NULL,
             Email VARCHAR(50) NOT NULL,
@@ -85,7 +85,7 @@ class tweeters{
         global $pdo;
         $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT);
 
-        $stmt = $pdo->prepare("INSERT INTO news (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
+        $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
         $stmt->bindParam(':Naam', $Naam);
         $stmt->bindParam(':Email', $Email);
         $stmt->bindParam(':Wachtwoord', $hashedPassword);

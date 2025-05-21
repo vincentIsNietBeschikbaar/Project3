@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . "../Model/callAccounts.php";
-include_once __DIR__ . "../View/signUp.php";
+include_once __DIR__ . "/../Model/callAccounts.php";
+include_once __DIR__ . "/../View/signUp.php";
 
 class signUpController{
     public static function execute(){
@@ -14,9 +14,9 @@ class signUpController{
             $hashedPassword = password_hash($Wachtwoord, PASSWORD_DEFAULT);
 
             tweeters::initializeDatabase();
-            tweeters::makeAccount(Naam,Email,Wachtwoord);
+            tweeters::makeAccount($Naam,$Email,$hashedPassword);
         }
     }
 }
 
-NewsPageController::execute();
+signUpController::execute();
