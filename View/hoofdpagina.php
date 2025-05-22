@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Churpify</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="icon" href="../IMG/churpifyLogo.ico?v=1" type="image/x-icon">
+    <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
 
 </head>
 <body>
