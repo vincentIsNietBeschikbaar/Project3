@@ -12,7 +12,8 @@
         <img class="profilePicture" src="../IMG/Profielfotos/Default_pfp.jpg" alt="">
         <div class="welcomeText">
             <?php
-            echo " Welkom, <b>Doorsnee Churpify Gebruiker </b>"  . "<br>";
+            session_start();
+echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
             ?>
         </div>
     </div>
