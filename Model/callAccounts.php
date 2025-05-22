@@ -1,5 +1,6 @@
 <?php
 include_once __DIR__ . "/dbConnect.php";
+session_start();
 
 //Uitgebreide model uitwerking. Volledig OOP datamodel (wel met global pdo object)
 class tweeters{
@@ -100,6 +101,26 @@ class tweeters{
             $stmt->bindParam(':Wachtwoord', $hashedPassword);
             return $stmt->execute();
         }
+    }
+
+    public static function login($username, $password){
+        global $pdo;
+        $stmt = $pdo->prepare("SELECT Wachtwoord FROM datavantwitter WHERE naam = :naam");
+        $stmt->bindParam(':naam', $username);
+        $stmt->execute();
+        // Then fetch the result and compare passwords
+
+            $stmt->bindParam("Naam", $username);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (password_verify($password, $result["Wachtwoord"])) {
+            echo "Hallo, " . $username;
+
+            $_SESSION["username"] = $username;
+        } else {
+            echo "Wachtwoord of gebruikersnaam is onjuist";
+        }
+        
     }
 
     //Get the latest added story, returns new instance.

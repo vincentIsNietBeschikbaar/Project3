@@ -2,25 +2,23 @@
 include_once __DIR__ . "/../Model/callAccounts.php";
 include_once __DIR__ . "/../View/signUp.php";
 
-class signUp{
+class login{
     public static function execute(){
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier
-            $Naam = $_POST["Naam"];
+            $Name = $_POST["Naam"];
             $Email = $_POST["Email"];
-            $Wachtwoord = $_POST["Wachtwoord"];
+            $Password = $_POST["Wachtwoord"];
             // Wachtwoord hashen
 
             tweeters::initializeDatabase();
-            $status = tweeters::makeAccount($Naam,$Email,$Wachtwoord);
+            $status = tweeters::makeAccount($Name,$Email,$Password);
 
             if ($status){
                 echo "account is aangemaakt. U kunt nu naar de inlogpagina";
             }
-
         }
     }
 }
 
-signUp::execute();
+login::execute();

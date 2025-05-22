@@ -17,6 +17,6 @@
         </form>
     </nav>
 
-    <a class="LoggingInButton" href="login.php">Inloggen?</a>
+    <a class="LoggingInButton" href="../View/login.php">Inloggen?</a>
 </body>
 </html>

@@ -81,7 +81,6 @@ try {
  
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,7 +127,5 @@ try {
 
     <script src="../JS/MakeTweet.js? <?php echo filemtime('../JS/MakeTweet.js'); ?>"></script>
     <script src="../JS/selectProfilePic.js? <?php echo filemtime('../JS/selectProfilePic.js'); ?>"></script>
-
 </body>
-
 </html>
