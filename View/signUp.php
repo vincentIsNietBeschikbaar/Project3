@@ -22,7 +22,7 @@
                         </form>
                     </nav>
 
-                    <a class="LoggingInButton" href="../View/login.php">Inloggen?</a>
+                    <a class="LoggingInButton" href="../Controllers/loginController.php">Inloggen?</a>
                 </body>
                 </html>
             ';

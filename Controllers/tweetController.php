@@ -19,6 +19,6 @@ class makeChirp{
                 echo "Tweet succesvol naar de database gestuurd!";
         }
     }
-        }
+    }
 }
 makeChirp::execute();
