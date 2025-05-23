@@ -94,7 +94,6 @@ class tweeters{
         }else{
 
             $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT); // hashing the password
-
             $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
             $stmt->bindParam(':Naam', $Naam);
             $stmt->bindParam(':Email', $Email);

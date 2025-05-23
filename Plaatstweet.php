@@ -5,9 +5,9 @@ echo "Welkom,  " . $_SESSION["user"] . ".<br>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pressed
     $servername = "localhost"; 
-    $username = "root"; 
+    $username = "root";
     $password = ""; 
-    $dbname = "databseTweeters"; 
+    $dbname = "databaseBerichten";
 
     $amountOfLikes = 0; 
     $originalPoster = $_SESSION["user"]; 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
         if ($lastChirp !== $chirpifyText) {
             // If not the same, insert the new chirp into the database
             $sql = "INSERT INTO berichten (Poster, chirpText, aantalLikes) 
-                VALUES ('$originalPoster', '$chirpifyText', '$amountOfLikes')"; 
+                VALUES ('$originalPoster', '$cghirpifyText', '$amountOfLikes')"; 
             $conn->exec($sql);
             echo "Tweet in database gegooit";
         } else {
@@ -54,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
 <body> 
  <img class="cuteDuck" src="../IMG/chirpifyLogo.png" alt="Als je dit ziet, is er denk ik iets fout, er zou hier oorspronkelijk een eend moeten staan..">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> 
- 
         <textarea id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="makeChirpifyBox" cols="30" 
             rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
