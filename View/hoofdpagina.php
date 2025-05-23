@@ -18,7 +18,7 @@ echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
         </div>
     </div>
 
-    <a class="makeChirpButton" href="../View/plaatstweet.php">Maak nieuwe Chirp</a>
+    <a class="makeChirpButton" href="../View/makeChirp.php">Maak nieuwe Chirp</a>
     <a class="changeProfilePictureButton" href="../View/profilePicture.php">Kies een (nieuwe) Profielfoto</a>
     <nav id="cloneTweet" class="tweet" data-post-id="1">
         <nav class="profileBar" name="profileBar"></nav>

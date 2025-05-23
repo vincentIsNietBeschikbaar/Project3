@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // check if the submit button is pre
     $servername = "localhost"; 
     $username = "root"; 
     $password = ""; 
-    $dbname = "databaseBerichten"; 
+    $dbname = "databseTweeters"; 
 
     $amountOfLikes = 0; 
     $originalPoster = $_SESSION["user"]; 
