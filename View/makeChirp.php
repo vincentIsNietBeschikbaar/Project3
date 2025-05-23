@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+class page {
+    public static function display() {
+        
+        echo '<!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
@@ -19,3 +23,7 @@
         
 </body>
 </html>
+ ';
+    }
+}
+?>
