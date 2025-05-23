@@ -128,7 +128,7 @@ public static function makeChirp($Poster, $ChirpBericht){
     $stmt->bindParam(":ChirpBericht", $ChirpBericht);
     return $stmt->execute();
 }
-}
+
     //Get the latest added story, returns new instance.
     public static function getLatestNewsStory(){
         global $pdo;
