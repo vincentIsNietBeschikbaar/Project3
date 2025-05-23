@@ -121,14 +121,14 @@ class tweeters{
         }
         
     }
-public static function makeChirp($Poster, $ChirpBericht){
-    global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
-    $stmt->bindParam(":Poster", $Poster);
-    $stmt->bindParam(":ChirpBericht", $ChirpBericht);
-    return $stmt->execute();
-}
-
+    public static function makeChirp($Poster, $ChirpBericht){
+        global $pdo;
+        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
+        $stmt->bindParam(":Poster", $Poster);
+        $stmt->bindParam(":ChirpBericht", $ChirpBericht);
+        return $stmt->execute();
+    }
+    
     //Get the latest added story, returns new instance.
     public static function getLatestNewsStory(){
         global $pdo;

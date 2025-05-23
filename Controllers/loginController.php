@@ -1,9 +1,12 @@
 <?php
-include_once __DIR__ . "/../Model/callAccounts.php";
-include_once __DIR__ . "/../View/login.php";
+require_once "../Model/callAccounts.php";
+require_once "../View/login.php";
 
 class signUp{
+
     public static function execute(){
+            $page = new page();
+            $page->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // get values from the form

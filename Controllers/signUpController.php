@@ -1,9 +1,13 @@
 <?php
-include_once __DIR__ . "/../Model/callAccounts.php";
-include_once __DIR__ . "/../View/signUp.php";
+require_once "../Model/callAccounts.php";
+require_once "../View/signUp.php";
 
 class login{
+    
     public static function execute(){
+        $page = new page();
+        $page->display();
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier
             $Name = $_POST["Naam"];
