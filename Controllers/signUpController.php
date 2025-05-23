@@ -2,7 +2,7 @@
 require_once "../Model/callAccounts.php";
 require_once "../View/signUp.php";
 
-class login{
+class signUp{
     
     public static function execute(){
         $page = new page();
@@ -25,4 +25,4 @@ class login{
     }
 }
 
-login::execute();
+signUp::execute();
