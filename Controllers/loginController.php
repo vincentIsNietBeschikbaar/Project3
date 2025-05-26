@@ -5,15 +5,15 @@ require_once "../View/login.php";
 class login{
 
     public static function execute(){
-            $page = new page();
-            $page->display();
+            $loginView = new loginView();
+            $loginView->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // get values from the form
             $Name = $_POST["Naam"];
             $Password = $_POST["Wachtwoord"];
-            tweeters::initializeDatabase();
-            tweeters::login($Name,$Password);
+            accounts::initializeDatabase();
+            accounts::login($Name,$Password);
         }
     }
 }

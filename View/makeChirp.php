@@ -1,5 +1,5 @@
 <?php
-class page {
+class makeChirpView {
     public static function display() {
         
         echo '<!DOCTYPE html>

@@ -5,8 +5,8 @@ require_once "../View/signUp.php";
 class signUp{
     
     public static function execute(){
-        $page = new page();
-        $page->display();
+        $sigUpView = new sigUpView();
+        $signUpView->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier
@@ -15,8 +15,8 @@ class signUp{
             $Password = $_POST["Wachtwoord"];
             // Wachtwoord hashen
 
-            tweeters::initializeDatabase();
-            $status = tweeters::makeAccount($Name,$Email,$Password);
+            accounts::initializeDatabase();
+            $status = accounts::makeAccount($Name,$Email,$Password);
 
             if ($status){
                 echo "account is aangemaakt. U kunt nu naar de inlogpagina";

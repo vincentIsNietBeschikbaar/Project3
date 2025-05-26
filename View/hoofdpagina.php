@@ -1,5 +1,5 @@
 <?php
-class page {
+class homeView {
     public static function display() {
         echo '
 <head>
@@ -8,7 +8,6 @@ class page {
     <title>Churpify</title>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
-
 </head>
 <body>
 <img  class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">

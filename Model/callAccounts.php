@@ -3,7 +3,7 @@ include_once __DIR__ . "/dbConnect.php";
 session_start();
 
 //Uitgebreide model uitwerking. Volledig OOP datamodel (wel met global pdo object)
-class tweeters{
+class accounts{
     // gebruikerData
     private $ID;
     public $Naam;
