@@ -17,7 +17,7 @@ class page {
                     Gebruikersnaam: <input class="Username" type="text" name="Naam" required><br>
                     Wachtwoord: <input type="password" class="Password" name="Wachtwoord" required><br>
                     <input class="submitButton" type="submit" value="Inloggen" name="Inloggen">
-                    <a class="WebsiteButton" href="../View/hoofdpagina.php">Ga naar de Website</a>
+                    <a class="WebsiteButton" href="../Controllers/HomepageController.php">Ga naar de Website</a>
                 </form>
             </nav>
         </body>
