@@ -1,3 +1,7 @@
+<?php
+class page {
+    public static function display() {
+        echo '
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +15,6 @@
     <div class="profileContainer">
         <img class="profilePicture" src="../IMG/Profielfotos/Default_pfp.jpg" alt="">
         <div class="welcomeText">
-            <?php
-            session_start();
-echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
-            ?>
         </div>
     </div>
 
@@ -37,3 +37,7 @@ echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
     </nav>
 </body>
 </html>
+ ';
+    }
+}
+?>

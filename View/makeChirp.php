@@ -19,7 +19,7 @@ class page {
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
         <input type="file">
 
-        <a  class="viewChirpsButton" href="hoofdpagina.php">Bekijk Chirps hier</a> 
+        <a  class="viewChirpsButton" href="../Controllers/HomepageController.php">Bekijk Chirps hier</a> 
         
 </body>
 </html>
