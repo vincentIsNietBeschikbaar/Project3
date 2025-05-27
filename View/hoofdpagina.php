@@ -18,7 +18,7 @@ class homeView {
     </div>
 
     <a class="makeChirpButton" href="../Controllers/tweetController.php">Maak nieuwe Chirp</a>
-    <a class="changeProfilePictureButton" href="../View/profilePicture.php">Kies een (nieuwe) Profielfoto</a>
+    <a class="changeProfilePictureButton" href="../View/profilePictures.php">Kies een Profielfoto</a>
     <nav id="cloneTweet" class="tweet" data-post-id="1">
         <nav class="profileBar" name="profileBar"></nav>
 

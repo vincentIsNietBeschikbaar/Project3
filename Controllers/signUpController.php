@@ -1,11 +1,12 @@
 <?php
+require_once "../Model/callTweets.php";
 require_once "../Model/callAccounts.php";
 require_once "../View/signUp.php";
 
 class signUp{
     
     public static function execute(){
-        $sigUpView = new sigUpView();
+        $signUpView = new signUpView();
         $signUpView->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

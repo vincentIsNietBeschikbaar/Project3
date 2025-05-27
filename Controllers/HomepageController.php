@@ -5,12 +5,15 @@
     session_start();
 echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
 
-class homePage{
+class homePageView{
 
     public static function execute(){
+        $tweets = Chirps::GetChirps();
+          foreach($tweets as $tweet){
+        var_dump ($tweet);
+    };
+
             $homeView = new homeView();
             $homeView->display();
     }}
-    homepage::execute();
-?>
-    
+    homepageView::execute();

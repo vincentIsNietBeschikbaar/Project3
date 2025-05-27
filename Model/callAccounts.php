@@ -121,13 +121,7 @@ class accounts{
         }
         
     }
-    public static function makeChirp($Poster, $ChirpBericht){
-        global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
-        $stmt->bindParam(":Poster", $Poster);
-        $stmt->bindParam(":ChirpBericht", $ChirpBericht);
-        return $stmt->execute();
-    }
+
     
     //Get the latest added story, returns new instance.
     public static function getLatestNewsStory(){
@@ -156,6 +150,23 @@ class accounts{
         $newNewsItem->body = $data["body"];
         $newNewsItem->date = new DateTime($data["date"]);
         return $newNewsItem;
+    }
+}
+
+class Chirps{
+        public static function makeChirp($Poster, $ChirpBericht){
+        global $pdo;
+        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
+        $stmt->bindParam(":Poster", $Poster);
+        $stmt->bindParam(":ChirpBericht", $ChirpBericht);
+        return $stmt->execute();
+    }
+
+    public static function GetChirps(){
+        global $pdo;
+        $stmt = $pdo->prepare("SELECT * FROM `berichten` ORDER BY `berichten`.`ID` ASC LIMIT 10" );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 //Voorbeeldgebruik

@@ -12,10 +12,8 @@ class makeChirpView {
     <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
 </head>
 <body>
-  <form method="post" action="../Controllers/tweetController.php"> 
- 
-        <textarea required id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="ChirpBericht" cols="30" 
-            rows="10"></textarea><br> 
+  <form method="post" action="../Controllers/tweetController.php">
+        <textarea required id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="ChirpBericht" cols="30" rows="10"></textarea><br> 
         <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
         <input type="file">
 
