@@ -82,20 +82,28 @@ class accounts{
         return NewsModel::loadSingleResult($data[0]);
     }
 
-    public static function makeAccount($Naam, $Email, $Wachtwoord) {
+    public static function saveProfilePicture($username, imgLink){
+        global $pdo;
+        $stmt = $pdo->prepare("INSERT INTO datavantwitter (p, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
+        $stmt->bindParam(":Poster", $Poster);
+        $stmt->bindParam(":ChirpBericht", $ChirpBericht);
+        return $stmt->execute();
+    }
+
+    public static function makeAccount($Name, $Email, $Password) {
         global $pdo;
 
         $stmt = $pdo->prepare("SELECT * FROM datavantwitter WHERE Naam = :Naam");
-        $stmt->bindParam(':Naam', $Naam);
+        $stmt->bindParam(':Naam', $Name);
         $stmt->execute();
         $existingUser = $stmt->fetch();
         if ($existingUser){// if the username already exists
             echo "Deze gebruikersnaam is reeds in gebruik.";
         }else{
 
-            $hashedPassword = password_hash($Wachtwoord, PASSWORD_BCRYPT); // hashing the password
+            $hashedPassword = password_hash($Password, PASSWORD_BCRYPT); // hashing the password
             $stmt = $pdo->prepare("INSERT INTO datavantwitter (Naam, Email, Wachtwoord) VALUES (:Naam, :Email, :Wachtwoord)");
-            $stmt->bindParam(':Naam', $Naam);
+            $stmt->bindParam(':Naam', $Name);
             $stmt->bindParam(':Email', $Email);
             $stmt->bindParam(':Wachtwoord', $hashedPassword);
             return $stmt->execute();

@@ -4,10 +4,9 @@ require_once "../Model/callAccounts.php";
 require_once "../View/signUp.php";
 
 class signUp{
-    
     public static function execute(){
-        $signUpView = new signUpView();
-        $signUpView->display();
+        $page = new signUpView();
+        $page->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier

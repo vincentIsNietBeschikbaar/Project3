@@ -5,7 +5,7 @@ include_once __DIR__ . "/../View/makeChirp.php";
 class makeChirp{
 
   public static function execute(){
-       $makeChirpView = new makeChirpView();
+        $makeChirpView = new makeChirpView();
         $makeChirpView->display();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier
@@ -18,8 +18,8 @@ class makeChirp{
 
             if ($status){
                 echo "Tweet succesvol naar de database gestuurd!";
+            }
         }
-    }
     }
 }
 makeChirp::execute();
