@@ -82,11 +82,11 @@ class accounts{
         return NewsModel::loadSingleResult($data[0]);
     }
 
-    public static function saveProfilePicture($username, imgLink){
+    public static function saveProfilePicture($username, $imgLink){
         global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO datavantwitter (p, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
-        $stmt->bindParam(":Poster", $Poster);
-        $stmt->bindParam(":ChirpBericht", $ChirpBericht);
+        $stmt = $pdo->prepare("UPDATE datavantwitter SET profilePicture = :imgLink WHERE Naam = :username");
+        $stmt->bindParam(':imgLink', $imgLink, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         return $stmt->execute();
     }
 

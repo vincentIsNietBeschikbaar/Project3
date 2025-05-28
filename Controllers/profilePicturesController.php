@@ -3,24 +3,20 @@
 require_once "../Model/callAccounts.php";
 require_once "../View/profilePictures.php";
 
-class login{
+class selectProfilePictures{
 
     public static function execute(){
-            $View = new profilePicturesView();
-            $View->display();
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                /*
-                $Name = $_POST["Naam"];
-                $Password = $_POST["Wachtwoord"];
-                accounts::initializeDatabase();
-                accounts::login($Name,$Password);
-                */
-
-            }
+            
+        $View = new profilePicturesView();
+        $View->display();
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            echo "test";
+            $imageLink =  $_POST["imageLink"];
+            $username = $_SESSION["username"];
+            $newIMGLink = accounts::saveProfilePicture($username,$imageLink);
+        }
     }
 }
 
-login::execute();
+selectProfilePictures::execute();
 ?>
