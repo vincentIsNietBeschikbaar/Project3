@@ -3,7 +3,6 @@ class profilePicturesView{
     public static function display(){
         $profilePictureFolder = "../IMG/Profielfotos";
         $files = glob("$profilePictureFolder/*.png");
-
         
         foreach($files as $image){
             echo "<img src=\"$image\" width=\"5%\" alt=\"Profielfoto\"> ";
@@ -12,7 +11,7 @@ class profilePicturesView{
         foreach($files as $image){
             echo '<input type="radio" id="input" name="imageLink" value="' . htmlspecialchars($image) . '"> ';
         }
-        echo '<input class="submitButton" type="submit" value="submit" name="submit" >';
+        echo '<input class="submitButton" type="submit" value="submit" name="submit">';
         echo '</form>';
     }
 }

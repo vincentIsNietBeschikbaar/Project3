@@ -82,6 +82,15 @@ class accounts{
         return NewsModel::loadSingleResult($data[0]);
     }
 
+    public static function loadProfilePicture($username){
+        global $pdo;
+        $stmt = $pdo->prepare("SELECT profilePicture FROM datavantwitter WHERE Naam = :username");
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['profilePicture'] : null;
+    }
+
     public static function saveProfilePicture($username, $imgLink){
         global $pdo;
         $stmt = $pdo->prepare("UPDATE datavantwitter SET profilePicture = :imgLink WHERE Naam = :username");
@@ -127,10 +136,8 @@ class accounts{
         } else {
             echo "Wachtwoord of gebruikersnaam is onjuist";
         }
-        
     }
 
-    
     //Get the latest added story, returns new instance.
     public static function getLatestNewsStory(){
         global $pdo;

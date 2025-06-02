@@ -1,6 +1,9 @@
 <?php
 class homeView {
+
     public static function display() {
+        $profilePicture = "../IMG\Profielfotos\Default_pfp.jpg";
+
         echo '
 <head>
     <meta charset="UTF-8">
@@ -11,14 +14,9 @@ class homeView {
 </head>
 <body>
 <img  class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">
-    <div class="profileContainer">
-        <img class="profilePicture" src="../IMG/Profielfotos/Default_pfp.jpg" alt="">
-        <div class="welcomeText">
-        </div>
-    </div>
 
     <a class="makeChirpButton" href="../Controllers/tweetController.php">Maak nieuwe Chirp</a>
-    <a class="changeProfilePictureButton" href="../View/profilePictures.php">Kies een Profielfoto</a>
+    <a class="changeProfilePictureButton" href="../Controllers/profilePicturesController.php">Kies een Profielfoto</a>
     <nav id="cloneTweet" class="tweet" data-post-id="1">
         <nav class="profileBar" name="profileBar"></nav>
 
