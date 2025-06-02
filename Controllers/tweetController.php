@@ -2,7 +2,7 @@
 include_once __DIR__ . "/../Model/callAccounts.php";
 include_once __DIR__ . "/../View/makeChirp.php";
 
-class makeChirp{
+class NewChirp{
 
   public static function execute(){
         $makeChirpView = new makeChirpView();
@@ -11,9 +11,9 @@ class makeChirp{
             // Haal de waarden op uit het formulier
             $Poster = $_SESSION["username"];
             $ChirpBericht = $_POST["ChirpBericht"];
-
+$status = accounts::NewChirp($Poster, $ChirpBericht);
             accounts::initializeDatabase();
-            $status = accounts::makeChirp($Poster, $ChirpBericht);
+            
 
 
             if ($status){
@@ -22,4 +22,4 @@ class makeChirp{
         }
     }
 }
-makeChirp::execute();
+NewChirp::execute();

@@ -30,7 +30,7 @@ class accounts{
     }
 
     public function getID(){
-        return $this->id;
+        return $this->ID;
     }
 
     //Saves any changes.
@@ -177,9 +177,9 @@ class Chirps{
         return $stmt->execute();
     }
 
-    public static function GetChirps(){
+    public static function getChirps(){
         global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM `berichten` ORDER BY `berichten`.`ID` ASC LIMIT 10" );
+        $stmt = $pdo->prepare("SELECT * FROM `berichten` ORDER BY `berichten`.`ID` DESC" );  
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

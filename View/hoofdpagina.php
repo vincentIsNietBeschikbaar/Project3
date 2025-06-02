@@ -14,13 +14,18 @@ class homeView {
 </head>
 <body>
 <img  class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">
+    <div class="profileContainer">
+        <img class="profilePicture" src="" alt="">
+        <div class="welcomeText">
+        </div>
+    </div>
 
     <a class="makeChirpButton" href="../Controllers/tweetController.php">Maak nieuwe Chirp</a>
     <a class="changeProfilePictureButton" href="../Controllers/profilePicturesController.php">Kies een Profielfoto</a>
     <nav id="cloneTweet" class="tweet" data-post-id="1">
         <nav class="profileBar" name="profileBar"></nav>
-
         <nav class="tweetBox" name="tweetBox">
+
 
             <img src="../IMG/unfilled_Heart.png" alt="Een niet gevuld hartje" id="unfilledHeart" class="unfilled_Heart"
                 name="unfilled_Heart">
