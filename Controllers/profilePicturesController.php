@@ -8,6 +8,7 @@ class selectProfilePictures{
         $View = new profilePicturesView();
         $View->display();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo ' test';
 
             $imageLink =  $_POST["imageLink"];
             $username = $_SESSION["username"];

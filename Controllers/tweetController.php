@@ -2,6 +2,7 @@
 include_once __DIR__ . "/../Model/callAccounts.php";
 include_once __DIR__ . "/../View/makeChirp.php";
 
+
 class NewChirp{
 
   public static function execute(){
@@ -11,15 +12,10 @@ class NewChirp{
             // Haal de waarden op uit het formulier
             $Poster = $_SESSION["username"];
             $ChirpBericht = $_POST["ChirpBericht"];
-<<<<<<< Updated upstream
-$status = accounts::NewChirp($Poster, $ChirpBericht);
+            $status = Chirps::makeChirp($Poster, $ChirpBericht);
             accounts::initializeDatabase();
-            
-
-=======
 
             $status = Chirps::makeChirp($Poster, $ChirpBericht);
->>>>>>> Stashed changes
 
             if ($status){
                 echo "Tweet succesvol naar de database gestuurd!";

@@ -69,55 +69,54 @@
   color: black;
   z-index: 1;
 }
-
 .tweet {
-  position: absolute;
-  left: 30%;
-  top: 0;
-  margin-top: 1vh;
+  margin-top: 2vh;
 }
 
 .tweetBox {
-  position: absolute;
+  word-break: break-word;
+overflow-wrap: break-word;
+white-space: normal;
   width: 30vw;
-  height: 25vh;
+  min-height: 20vh;
   background-color: gray;
-  margin-top: 5vh;
+  margin: 3vh auto;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative; 
 }
 
 .naamInTweet {
   margin-left: 5%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-weight: bold;
 }
 
-.profileBar {
-  position: absolute;
-  width: 30vw;
-  height: 30vh;
-  margin-bottom: 2vh;
-  background-color: skyblue;
-  z-index: -1;
+.textInTweet {
+  color: black;
+  margin: 10px 5%;
+  word-wrap: break-word;
+  z-index: 1;
 }
 
-
-.unfilled_Heart{
-  position: absolute;
-  padding-top: 187px;
-  right: 70%;
+.unfilled_Heart,
+.filled_Heart {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: 5%;
+  cursor: pointer;
 }
 
-.filled_Heart{
-  position: absolute;
-  padding-top: 188px;
-  right: 70%;
-  visibility: hidden;
+.filled_Heart {
+  display: none;
 }
 
-.likeCounter{
-  position: absolute;
-  top: 97%;
-  right: 85%;
+.likeCounter {
+  font-size: 12px;
+  color: white;
+  margin-left: 10px;
 }
+
 
 .makeChirpButton {
   cursor: pointer;
@@ -195,6 +194,7 @@
     gap: 10px;
 }
 .profilePicture{
+  position: absolute;
   top: 22%;
   height: 90px;
   width: 90px;
