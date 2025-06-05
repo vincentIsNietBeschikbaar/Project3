@@ -74,6 +74,9 @@
 }
 
 .tweetBox {
+  word-break: break-word;
+overflow-wrap: break-word;
+white-space: normal;
   width: 30vw;
   min-height: 20vh;
   background-color: gray;
