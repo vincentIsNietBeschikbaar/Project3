@@ -96,6 +96,7 @@ class accounts{
         $stmt = $pdo->prepare("UPDATE datavantwitter SET profilePicture = :imgLink WHERE Naam = :username");
         $stmt->bindParam(':imgLink', $imgLink, PDO::PARAM_STR);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        echo "test";
         return $stmt->execute();
     }
 

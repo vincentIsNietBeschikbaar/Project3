@@ -8,6 +8,7 @@ class selectProfilePictures{
         $View = new profilePicturesView();
         $View->display();
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
             $imageLink =  $_POST["imageLink"];
             $username = $_SESSION["username"];
             $newIMGLink = accounts::saveProfilePicture($username,$imageLink);

@@ -11,10 +11,15 @@ class NewChirp{
             // Haal de waarden op uit het formulier
             $Poster = $_SESSION["username"];
             $ChirpBericht = $_POST["ChirpBericht"];
+<<<<<<< Updated upstream
 $status = accounts::NewChirp($Poster, $ChirpBericht);
             accounts::initializeDatabase();
             
 
+=======
+
+            $status = Chirps::makeChirp($Poster, $ChirpBericht);
+>>>>>>> Stashed changes
 
             if ($status){
                 echo "Tweet succesvol naar de database gestuurd!";

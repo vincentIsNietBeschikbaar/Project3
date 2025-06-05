@@ -11,8 +11,10 @@ class profilePicturesView{
         foreach($files as $image){
             echo '<input type="radio" id="input" name="imageLink" value="' . htmlspecialchars($image) . '"> ';
         }
-        echo '<input class="submitButton" type="submit" value="submit" name="submit">';
+        echo '<input class="submitButton" type="submit" value="opslaan" name="submit">';
         echo '</form>';
+
+        echo '<a href="../Controllers/homePageController.php">Ga terug</a>';
     }
 }
 ?>
