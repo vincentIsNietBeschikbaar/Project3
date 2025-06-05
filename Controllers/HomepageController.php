@@ -2,8 +2,7 @@
     include_once __DIR__ . "/../Model/callAccounts.php";
     include_once __DIR__ . "/../View/hoofdpagina.php";
 
-    //session_start();
-echo "          Welkom,  " . $_SESSION["username"] . ".<br>";
+    session_start();
 
 class homePageView{
 
@@ -14,6 +13,8 @@ class homePageView{
 
         $tweets = Chirps::GetChirps();
           foreach ($tweets as $tweet) {
+
+echo "          Welkom,  " . $_SESSION["username"] . "<br>";
     echo '
     <div class="tweetBox">
         <div class="poster"><strong>' . htmlspecialchars($tweet['Poster']) . '</strong></div>
@@ -25,7 +26,6 @@ class homePageView{
         </div>
     </div>';
 }
-
 
             $profilePicture = accounts::loadProfilePicture($_SESSION["username"]);
 
