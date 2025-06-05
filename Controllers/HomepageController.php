@@ -7,25 +7,34 @@ echo "          Welkom  " . $_SESSION["username"] . ".<br>";
 
 class homePageView{
     public static function execute(){
-        $tweets = Chirps::GetChirps();
-          foreach($tweets as $tweet){
-        foreach($tweet as $tweetContent){
-            echo"$tweetContent" . "<br>";
-    }};
-
 
             $homeView = new homeView();
             $homeView->display();
-    }
-    public static function cloneTweet($Poster, $tweetContent) {
-    echo '<div class="tweetBox">
-            <div>' . htmlspecialchars($Poster) . '</div>
-            <p>' . htmlspecialchars($tweetContent) . '</p>
 
-            <img src="../IMG/unfilled_Heart.png" alt="Een niet gevuld hartje" class="tweetBox">
-            <img src="../IMG/filledHeart.png" alt="Een gevuld hartje" class="tweetBox">
+        $tweets = Chirps::GetChirps();
+          foreach ($tweets as $tweet) {
+    echo '
+    <div class="tweetBox">
+        <div class="poster"><strong>' . htmlspecialchars($tweet['Poster']) . '</strong></div>
+        <div class="chirpText">' . (htmlspecialchars($tweet['ChirpBericht'])) . '</div>
+        <div class="likeSection">
+            <img src="../IMG/unfilled_Heart.png" alt="Leeg hartje" class="unfilledHeart" />
+            <img src="../IMG/filledHeart.png" alt="Gevuld hartje" class="filledHeart" />
+            <span class="likeCounter">0 likes</span>
+        </div>
+    </div>';
+}
 
-            <div class="tweetBox"></div> <!-- likeCounter -->
+
+
+
+            $profilePicture = accounts::loadProfilePicture($_SESSION["username"]);
+
+                    echo '     
+        <div class="profileContainer">
+            <img class="profilePicture" src="' . htmlspecialchars($profilePicture) .'" alt="">
+            <div class="welcomeText">
+        </div>
         </div>';
 }
 
