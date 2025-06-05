@@ -15,8 +15,6 @@ class NewChirp{
             $status = Chirps::makeChirp($Poster, $ChirpBericht);
             accounts::initializeDatabase();
 
-            $status = Chirps::makeChirp($Poster, $ChirpBericht);
-
             if ($status){
                 echo "Tweet succesvol naar de database gestuurd!";
             }
