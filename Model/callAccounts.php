@@ -29,59 +29,6 @@ class accounts{
             );")->execute();
     }
 
-    public function getID(){
-        return $this->ID;
-    }
-
-    //Saves any changes.
-    public function save() {
-        global $pdo;
-        if ($this->ID != null) {
-            //Id already exists, overwrite existing database entry.
-            $stmt = $pdo->prepare("UPDATE datavantwitter SET Naam = :Naam, Email = :Email, Wachtwoord = :Wachtwoord WHERE ID = :ID");
-            $stmt->execute([':ID' => $this->ID, ':Naam' => $this->Naam, ':Email' => $this->Email, ':Wachtwoord' => $this->Wachtwoord]);
-        }else{
-            //No id found yet, insert new, then fetch created id.
-            $stmt = $pdo->prepare("INSERT INTO datavantwitter (date, title, body) VALUES (:date, :title, :body)");
-            $stmt->execute([':date' => $this->date->format('Y-m-d H:i:s'), ':title' => $this->title, ':body' => $this->body]);
-            $idfetchstatement = $pdo->prepare("SELECT LAST_INSERT_ID();");
-            $idfetchstatement->execute();
-            $this->id = $idfetchstatement->fetchAll()[0]["LAST_INSERT_ID()"];
-        }
-    }
-
-    public function delete() {
-        global $pdo;
-        if (!$this->id) {
-            throw new Exception("Item doesn't exist in db");
-        }
-
-        $stmt = $pdo->prepare("DELETE FROM datavantwitter WHERE ID = :ID");
-        $stmt->execute([':ID' => $this->ID]);
-
-        $this->ID = null;
-        $this->Naam = null;
-        $this->Email = null;
-        $this->Wachtwoord = null;
-    }
-
-    //Load by id, returns new instance.
-    public static function load($ID) {
-        global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM datavantwitter WHERE ID = :ID");
-        $stmt->execute([':ID' => $ID]);
-        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        var_dump($data);
-
-        if(count($data) != 1){
-            return null;
-        }
-
-        //Create a new instance with the data
-        return NewsModel::loadSingleResult($data[0]);
-    }
-
     public static function loadProfilePicture($username){
         global $pdo;
         $stmt = $pdo->prepare("SELECT profielFoto FROM datavantwitter WHERE Naam = :username");
@@ -137,35 +84,6 @@ class accounts{
             echo "Wachtwoord of gebruikersnaam is onjuist";
         }
     }
-
-    //Get the latest added story, returns new instance.
-    public static function getLatestNewsStory(){
-        global $pdo;
-        $prepared = $pdo->prepare("SELECT * FROM datavantwitter ORDER BY date DESC LIMIT 1;");
-        $prepared->execute();
-        $data = $prepfared->fetchAll();
-
-        //No story found
-        if(count($data) == 0){
-            return null;
-        }
-        return NewsModel::loadSingleResult($data[0]);
-    }
-
-    //utility function to transform a fetched result into an instance of this class.
-    public static function loadSingleResult($data){
-        if (!isset($data["id"]) || !isset($data["date"])|| !isset($data["title"])|| !isset($data["body"])){
-            var_dump($data);
-            throw new Exception("Some required elements not found for creating NewsPost");
-        }
-
-        $newNewsItem = new NewsModel();
-        $newNewsItem->id = $data["id"];
-        $newNewsItem->title = $data["title"];
-        $newNewsItem->body = $data["body"];
-        $newNewsItem->date = new DateTime($data["date"]);
-        return $newNewsItem;
-    }
 }
 
 class Chirps{
@@ -183,6 +101,14 @@ class Chirps{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function likeChirp($userID, $PostToLike){
+        global $pdo;
+        $stmt = $pdo->prepare("UPDATE berichten SET Likes = Likes + 1 WHERE :ID = $PostToLike");
+        echo "success";
+        return $stmt->execute();
+    }
+
 }
 //Voorbeeldgebruik
 
