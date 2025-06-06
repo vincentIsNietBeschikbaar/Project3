@@ -84,19 +84,18 @@ class accounts{
 
     public static function loadProfilePicture($username){
         global $pdo;
-        $stmt = $pdo->prepare("SELECT profilePicture FROM datavantwitter WHERE Naam = :username");
+        $stmt = $pdo->prepare("SELECT profielFoto FROM datavantwitter WHERE Naam = :username");
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result ? $result['profilePicture'] : null;
+        return $result ? $result['profielFoto'] : null;
     }
 
     public static function saveProfilePicture($username, $imgLink){
         global $pdo;
-        $stmt = $pdo->prepare("UPDATE datavantwitter SET profilePicture = :imgLink WHERE Naam = :username");
+        $stmt = $pdo->prepare("UPDATE datavantwitter SET profielFoto = :imgLink WHERE Naam = :username");
         $stmt->bindParam(':imgLink', $imgLink, PDO::PARAM_STR);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-        echo $imgLink;
         return $stmt->execute();
     }
 
