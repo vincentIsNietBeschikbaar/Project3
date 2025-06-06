@@ -14,7 +14,7 @@ class profilePicturesView{
         echo '<input class="submitButton" type="submit" value="opslaan" name="submit">';
         echo '</form>';
 
-        echo '<a href="../Controllers/homePageController.php">Ga terug</a>';
+        echo '<a href="../Controllers/HomepageController.php">Ga terug</a>';
     }
 }
 ?>
