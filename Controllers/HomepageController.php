@@ -2,35 +2,27 @@
     include_once __DIR__ . "/../Model/callAccounts.php";
     include_once __DIR__ . "/../View/hoofdpagina.php";
 
-    class homePageView{
-
+class homePageView{
     public static function execute(){
-        $homeView = new homeView();
-        $homeView->display();
         $tweets = Chirps::GetChirps();
 
-        $homeView->displayGreeting($_SESSION["username"]);
-
-
-        foreach ($tweets as $tweet) {
-            // calling a function in the view that echos the tweets
-            $homeView->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes']);
-        }
-
         $profilePicture = accounts::loadProfilePicture($_SESSION["username"]);
-        if ($profilePicture == NULL){ // if the user has no profile picture selected
-            $profilePicture = "../IMG/ProfielFotos/Default_pfp.jpg";
-        }
-        $homeView->loadProfilePicture($profilePicture); // calling function to echo profile picture
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") { // if the user likes a tweet
-            // get values from the form
-            
+        if ($profilePicture == NULL){ // if the user has no profile picture selected or it fails to load
+            $profilePicture = "../IMG/ProfielFotos/Default_pfp.jpg"; // turn profilepicture into the default one
         }
 
+        $homeView = new homeView();
+        $homeView->display($tweets, $profilePicture);
+
+        if (isset($_POST['tweetID'])) { // if the user likes a tweet
+            $tweetID = $_POST["tweetID"];
+            echo "test";
+
+            $result = Chirps::likeChirp($_SESSION["username"],$tweetID); // updating the chirp's like record
+            var_dump($result);
+            header('Location: ../Controllers/HomepageController.php');
+
+        }
     }
 }
 homepageView::execute();
-
-
-

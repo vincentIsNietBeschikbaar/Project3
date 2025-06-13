@@ -98,7 +98,6 @@ white-space: normal;
   z-index: 1;
 }
 
-.unfilled_Heart,
 .filled_Heart {
   width: 20px;
   height: 20px;
@@ -194,8 +193,7 @@ white-space: normal;
     gap: 10px;
 }
 .profilePicture{
-  position: absolute;
-  top: 22%;
+  position: static;
   height: 90px;
   width: 90px;
 }
