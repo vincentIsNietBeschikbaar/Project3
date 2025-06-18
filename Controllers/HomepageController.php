@@ -1,5 +1,6 @@
 <?php
-    include_once __DIR__ . "/../Model/callAccounts.php";
+include_once __DIR__ . "/../Model/callAccounts.php";
+    include_once __DIR__ . "/../Model/ChirpModel.php";
     include_once __DIR__ . "/../View/hoofdpagina.php";
 
 class homePageView{
@@ -20,9 +21,11 @@ class homePageView{
             $tweetID = $_POST["tweetID"];
 
             $result = Chirps::likeChirp($_SESSION["username"],$tweetID, $existingLikeIDs); // updating the chirp's like record
-            // var_dump($result);
+            var_dump($result);
             header('Location: ../Controllers/HomepageController.php');
         }
+        $showpicture = Chirps::profilepictureInChirp($_SESSION["username"]);
+
     }
 }
 homepageView::execute();

@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Model/callAccounts.php";
+require_once "../Model/ChirpModel.php";
 require_once "../View/profilePictures.php";
 
 class selectProfilePictures{

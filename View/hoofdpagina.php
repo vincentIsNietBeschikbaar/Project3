@@ -50,7 +50,7 @@ class homeView {
                 </form>
             </form>
 
-            <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
+        <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
             </div>
         ';
     }
