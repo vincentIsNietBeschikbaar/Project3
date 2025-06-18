@@ -103,22 +103,31 @@ class Chirps{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function likeChirp($username, $PostToLike){
+    public static function likeChirp($username, $PostToLike, $existingLikes){
         global $pdo;
-        
-        // Correct UPDATE with a bound parameter
+            
         $stmt1 = $pdo->prepare("UPDATE berichten SET Likes = Likes + 1 WHERE ID = :PostID");
         $stmt1->bindParam(':PostID', $PostToLike);
         $stmt1->execute();
-
-        // Correct INSERT with consistent parameter names
-        $stmt2 = $pdo->prepare("INSERT INTO likedchirps  (PostID, Username) VALUES (:PostID, :Username)");
-        $stmt2->bindParam(':PostID', $PostToLike);
-        $stmt2->bindParam(':Username', $username);
-        $stmt2->execute();
+        
+        $stmt3 = $pdo->prepare("INSERT INTO likedchirps  (PostID, Username) VALUES (:PostID, :Username)");
+        $stmt3->bindParam(':PostID', $PostToLike);
+        $stmt3->bindParam(':Username', $username);
+        $stmt3->execute();
     }
 
-    public static function getLikedChirps(){
-        global $pdo;
+    public static function getExistingLikes($username){
+
+        /*global $pdo;// getting the chirp the user has already liked, so an user can't like a chirp multiple times
+        $stmt = $pdo->prepare("SELECT * FROM PostID WHERE Username = :username");
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $existingLikeIDs = $stmt->fetch();
+        
+        if ($existingLikeIDs){
+            return $existingLikeIDs;
+        }else{
+            return 0;
+        } */
     }
 }

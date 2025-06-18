@@ -1,7 +1,7 @@
 <?php
 class homeView {
 
-    public function display($tweets, $imgLink) { // the arguments are an array of tweets and an path to the profilePicture
+    public function display($tweets, $imgLink, $existingLikes) { // the arguments are an array of tweets and an path to the profilePicture
         ?>
         <head>
         <meta charset="UTF-8">
