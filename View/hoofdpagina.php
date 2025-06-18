@@ -24,15 +24,20 @@ class homeView {
         $this->loadProfilePicture($imgLink);
         
         foreach ($tweets as $tweet){
-            $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID']);
+            if (in_array($tweet['ID'], $existingLikes)){ // if the tweet is already liked
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png");
+            }else{// if the user hasn't liked the tweet
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png");
+            }
         }
+
         ?>
         </body>
         </html>
      <?php
     }
 
-    public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID){
+    public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID, $likeImage){
         // function that generates a tweet and takes the poster, tweetcontent, likes and and ID as arguments
         echo '
             <div class="tweetBox">
@@ -41,7 +46,7 @@ class homeView {
 
                 <form method="post" action="../Controllers/HomepageController.php">
                     <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">
-                    <input type="image" src="../IMG/unfilled_Heart.png" name="likePost" alt="Like">
+                    <input type="image" src="'. htmlspecialchars($likeImage) .'" name="likePost" alt="Like">
                 </form>
             </form>
 
