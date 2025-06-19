@@ -1,13 +1,12 @@
 <?php
 include_once __DIR__ . "/dbConnect.php";
 class Chirps{
-    public static function makeChirp($Poster, $ChirpBericht, $ProfilePicture){
+    public static function makeChirp($Poster, $ChirpBericht){
         // saving the chirp the user has just posted.
         global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht,ProfielFoto) VALUES (:Poster, :ChirpBericht, :ProfielFoto)");
+        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
         $stmt->bindParam(":Poster", $Poster);
         $stmt->bindParam(":ChirpBericht", $ChirpBericht);
-        $stmt->bindParam(":ProfielFoto", $ProfilePicture);
         return $stmt->execute();
     }
 

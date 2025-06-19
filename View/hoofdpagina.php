@@ -44,7 +44,7 @@ class homeView {
 <div class="tweetBox">
     <div class="poster">
         <img src="' . htmlspecialchars($chirpProfilePicture) . '" alt="Profile Picture" class="profilePic" />
-        <strong>' . htmlspecialchars($chirpPoster) . '</strong>
+        <strong class="User" >' . htmlspecialchars($chirpPoster) . '</strong>
     </div>
     <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>
 
