@@ -21,11 +21,6 @@ class homeView {
 
         <?php 
 
-        if(!$_SESSION['login']){
-            header("location:../Controllers/loginController.php");
-            die;
-        }
-
         $this->displayGreeting();
         $this->loadProfilePicture($imgLink);
         
