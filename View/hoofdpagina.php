@@ -4,27 +4,33 @@ class homeView {
     public function display($tweets, $imgLink, $existingLikes) { // the arguments are an array of tweets and an path to the profilePicture
         ?>
         <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Churpify</title>
-        <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Churpify</title>
+            <link rel="stylesheet" href="../CSS/style.css">
+            <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
         </head>
         <body>
         <div class="profileContainer">
         </div>
         </div>
-        <img  class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">
+        <img class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">
         <a class="makeChirpButton" href="../Controllers/tweetController.php">Maak nieuwe Chirp</a>
         <a class="changeProfilePictureButton" href="../Controllers/profilePicturesController.php">Kies een Profielfoto</a>
         <div class="welcomeText">
 
         <?php 
+
+        if(!$_SESSION['login']){
+            header("location:../Controllers/loginController.php");
+            die;
+        }
+
         $this->displayGreeting();
         $this->loadProfilePicture($imgLink);
         
         foreach ($tweets as $tweet){
-            if (in_array($tweet['ID'], $existingLikes)){ // if the tweet is already liked
+            if (in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
                 $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png");
             }else{// if the user hasn't liked the tweet
                 $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png");
@@ -46,11 +52,11 @@ class homeView {
 
                 <form method="post" action="../Controllers/HomepageController.php">
                     <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">
-                    <input type="image" src="'. htmlspecialchars($likeImage) .'" name="likePost" alt="Like">
+                    <input type="image" src="'. htmlspecialchars($likeImage) .'" class="likeImage" name="likePost" alt="Like">
                 </form>
             </form>
 
-        <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
+            <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
             </div>
         ';
     }

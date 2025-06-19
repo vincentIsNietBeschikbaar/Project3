@@ -98,22 +98,25 @@ white-space: normal;
   z-index: 1;
 }
 
-.filled_Heart {
-  width: 20px;
-  height: 20px;
+.likeImage {
+  width: 30px;
+  height: 30px;
   margin-top: 10px;
   margin-left: 5%;
   cursor: pointer;
-}
 
-.filled_Heart {
-  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 20%;
 }
 
 .likeCounter {
   font-size: 12px;
   color: white;
   margin-left: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
 }
 
 
