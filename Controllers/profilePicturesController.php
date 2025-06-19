@@ -1,5 +1,5 @@
 <?php
-
+include_once __DIR__ . "/../Model/callAccounts.php";
 require_once "../Model/ChirpModel.php";
 require_once "../View/profilePictures.php";
 

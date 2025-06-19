@@ -1,20 +1,23 @@
 <?php
 include_once __DIR__ . "/dbConnect.php";
-session_start();
 class Chirps{
-    public static function makeChirp($Poster, $ChirpBericht){
+    public static function makeChirp($Poster, $ChirpBericht, $ProfilePicture){
         // saving the chirp the user has just posted.
         global $pdo;
-        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht) VALUES (:Poster, :ChirpBericht)");
+        $stmt = $pdo->prepare("INSERT INTO berichten (Poster, ChirpBericht,ProfielFoto) VALUES (:Poster, :ChirpBericht, :ProfielFoto)");
         $stmt->bindParam(":Poster", $Poster);
         $stmt->bindParam(":ChirpBericht", $ChirpBericht);
+        $stmt->bindParam(":ProfielFoto", $ProfilePicture);
         return $stmt->execute();
     }
 
     public static function getChirps(){
         // getting the chirps to display on the homepage
         global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM `berichten` ORDER BY `berichten`.`ID` DESC" );  
+        $stmt = $pdo->prepare("SELECT b.Poster, b.ChirpBericht, b.ID, b.Likes, d.ProfielFoto
+FROM berichten b
+LEFT JOIN datavantwitter d ON b.Poster = d.Naam
+ORDER BY `ID` DESC;" );  
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -39,7 +42,7 @@ class Chirps{
     public static function getExistingLikes($username){
         
         global $pdo;// getting the chirp the user has already liked, so an user can't like a chirp multiple times
-        $stmt = $pdo->prepare("SELECT PostID FROM likedChirps WHERE Username = :username");
+        $stmt = $pdo->prepare("SELECT PostID FROM likedchirps WHERE Username = :username");
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         $existingLikeIDs = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -48,12 +51,5 @@ class Chirps{
         }else{
             return 0;
         }
-    }
- public static function profilepictureInChirp($profilePicture){
-        global $pdo;
-    $stmt = $pdo->prepare("SELECT `profilePicture` FROM datavantwitter INNER JOIN berichten ON datavantwitter.profilePicture = berichten.profilePicture");
-    $stmt->bindParam(':profilePicture', $profilePicture);
-    $stmt->execute();
-     return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

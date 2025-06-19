@@ -31,9 +31,9 @@ class homeView {
         
         foreach ($tweets as $tweet){
             if (in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
-                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png");
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
             }else{// if the user hasn't liked the tweet
-                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png");
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'],$tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
             }
         }
 
@@ -43,12 +43,15 @@ class homeView {
      <?php
     }
 
-    public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID, $likeImage){
+    public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID,$likeImage, $chirpProfilePicture){
         // function that generates a tweet and takes the poster, tweetcontent, likes and and ID as arguments
         echo '
-            <div class="tweetBox">
-            <div class="poster"><strong>' . htmlspecialchars($chirpPoster) . '</strong></div>
-            <div class="chirpText">' . (htmlspecialchars($chirpContent)) . '</div>
+<div class="tweetBox">
+    <div class="poster">
+        <img src="' . htmlspecialchars($chirpProfilePicture) . '" alt="Profile Picture" class="profilePic" />
+        <strong>' . htmlspecialchars($chirpPoster) . '</strong>
+    </div>
+    <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>
 
                 <form method="post" action="../Controllers/HomepageController.php">
                     <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">

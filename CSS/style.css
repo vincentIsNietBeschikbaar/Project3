@@ -87,6 +87,7 @@ white-space: normal;
 }
 
 .naamInTweet {
+  position: absolute;
   margin-left: 5%;
   font-weight: bold;
 }
@@ -201,12 +202,12 @@ white-space: normal;
   width: 90px;
 }
 
-.tweetProfilePicture{
-  position: absolute;
-margin-left: 150px;
-margin-top: 3px;
-  height: 35px;
-  width: 35px;
+.profilePic{
+  position: static;
+margin-left: 0px;
+margin-top: 1px;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
 }
 
@@ -221,14 +222,6 @@ a{
 
 a:hover{
   color: black;
-}
-
-.cuteDuck{
-  width: 250px;
-  height: 250px;
-  position: absolute;
-  margin-left: 340px;
-  margin-top: 134px;
 }
 
 .addImageButton{
@@ -255,4 +248,10 @@ a:hover{
 .ChurpifyLogo{
   width: 150px;
   height: 150px;
+}
+
+strong{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
 }
