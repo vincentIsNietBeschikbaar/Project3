@@ -25,14 +25,16 @@ ORDER BY `ID` DESC;" );
         global $pdo;
 
         if (!in_array($PostToLike, $existingLikes)){ // if the user liked the tweet already
+            // first statement is to update the amount of likes on a post
+            // the second statement saves which user liked which post
             $stmt1 = $pdo->prepare("UPDATE berichten SET Likes = Likes + 1 WHERE ID = :PostID");
             $stmt1->bindParam(':PostID', $PostToLike);
             $stmt1->execute();
             
-            $stmt3 = $pdo->prepare("INSERT INTO likedchirps (PostID, Username) VALUES (:PostID, :Username)");
-            $stmt3->bindParam(':PostID', $PostToLike);
-            $stmt3->bindParam(':Username', $username);
-            $stmt3->execute();
+            $stmt2 = $pdo->prepare("INSERT INTO likedchirps (PostID, Username) VALUES (:PostID, :Username)");
+            $stmt2->bindParam(':PostID', $PostToLike);
+            $stmt2->bindParam(':Username', $username);
+            $stmt2->execute();
         }else{
             echo "liked chirp already";
         }
@@ -50,5 +52,12 @@ ORDER BY `ID` DESC;" );
         }else{
             return 0;
         }
+    }
+
+    public static function deleteChirp($chirpID){
+        global $pdo;
+        $stmt = $pdo->prepare("DELETE FROM berichten WHERE ID = $chirpID");
+        $stmt->execute();
+
     }
 }

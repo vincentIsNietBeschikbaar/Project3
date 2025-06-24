@@ -14,7 +14,7 @@ class NewChirp{
             // Haal de waarden op uit het formulier
             $Poster = $_SESSION["username"];
             $ChirpBericht = $_POST["ChirpBericht"];
-$ProfilePicture = isset($_SESSION["profilePicture"]);
+            $ProfilePicture = isset($_SESSION["profilePicture"]);
 
             $status = Chirps::makeChirp($Poster, $ChirpBericht, $ProfilePicture);
             accounts::initializeDatabase();

@@ -25,7 +25,7 @@ class homeView {
         $this->loadProfilePicture($imgLink);
         
         foreach ($tweets as $tweet){
-            if (in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
+            if ($existingLikes != 0 && in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
                 $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
             }else{// if the user hasn't liked the tweet
                 $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'],$tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
@@ -41,22 +41,28 @@ class homeView {
     public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID,$likeImage, $chirpProfilePicture){
         // function that generates a tweet and takes the poster, tweetcontent, likes and and ID as arguments
         echo '
-<div class="tweetBox">
-    <div class="poster">
-        <img src="' . htmlspecialchars($chirpProfilePicture) . '" alt="Profile Picture" class="profilePic" />
-        <strong class="User" >' . htmlspecialchars($chirpPoster) . '</strong>
-    </div>
-    <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>
-
-                <form method="post" action="../Controllers/HomepageController.php">
-                    <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">
-                    <input type="image" src="'. htmlspecialchars($likeImage) .'" class="likeImage" name="likePost" alt="Like">
-                </form>
-            </form>
-
-            <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
+        <div class="tweetBox">
+            <div class="poster">
+                <img src="' . htmlspecialchars($chirpProfilePicture) . '" alt="Profile Picture" class="profilePic" />
+                <strong>' . htmlspecialchars($chirpPoster) . '</strong>
             </div>
-        ';
+            <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>';
+
+        if ($_SESSION['username'] == $chirpPoster) {
+            echo '
+            <form method="post" action="../Controllers/HomepageController.php">
+                <input type="hidden" name="chirpToDelete" value="' . htmlspecialchars($tweetID) . '">
+                <input type="submit" class="deleteButton" name="deleteChirp" value="Delete Chirp" alt="Button to delete your chirp">
+            </form>';
+        }
+
+        echo '
+            <form method="post" action="../Controllers/HomepageController.php">
+                <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">
+                <input type="image" src="' . htmlspecialchars($likeImage) . '" class="likeImage" name="likePost" alt="Like">
+            </form>
+            <span class="likeCounter">' . htmlspecialchars($likes) . ' likes</span>
+        </div>';
     }
 
     public static function loadProfilePicture($imgLink){

@@ -17,7 +17,7 @@ class homePageView{
         if ($profilePicture == NULL){ // if the user has no profile picture selected or it fails to load
             $profilePicture = "../IMG/ProfielFotos/Default_pfp.jpg"; // turn profilepicture into the default one
         }
-         $_SESSION["profilePicture"] = $profilePicture;
+        $_SESSION["profilePicture"] = $profilePicture;
 
         $existingLikeIDs = Chirps::getExistingLikes($_SESSION["username"]);
 
@@ -28,8 +28,12 @@ class homePageView{
             $tweetID = $_POST["tweetID"];
     
             $result = Chirps::likeChirp($_SESSION["username"],$tweetID, $existingLikeIDs); // updating the chirp's like record
-            var_dump($result);
             header('Location: ../Controllers/HomepageController.php');
+        }
+
+        if (isset($_POST['chirpToDelete'])){
+            $tweetID = $_POST["chirpToDelete"];
+            Chirps::deleteChirp($tweetID);
         }
     }
 }

@@ -4,11 +4,11 @@ class profilePicturesView{
         $profilePictureFolder = "../IMG/Profielfotos";
         $files = glob("$profilePictureFolder/*.png");
         
-        foreach($files as $image){
+        foreach($files as $image){ // echoing all the profile pictures
             echo "<img src=\"$image\" width=\"5%\" alt=\"Profielfoto\"> ";
         }
         echo '<form method="post" action="../Controllers/profilePicturesController.php">';
-        foreach($files as $image){
+        foreach($files as $image){ // echoing all the confirm buttons
             echo '<input type="radio" id="input" name="imageLink" value="' . htmlspecialchars($image) . '"> ';
         }
         echo '<input class="submitButton" type="submit" value="opslaan" name="submit">';

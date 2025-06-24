@@ -75,7 +75,7 @@ class accounts{
         $stmt->bindParam("Naam", $username);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (password_verify($password, $result["Wachtwoord"])) { // if the password and username are correct
+        if (password_verify($password, $result["Wachtwoord"])) { // if the password is correct
             $_SESSION['login'] = true;
             echo "Hallo, " . $username;
             $_SESSION["username"] = $username;
