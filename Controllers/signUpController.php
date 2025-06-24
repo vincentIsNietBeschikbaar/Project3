@@ -1,24 +1,25 @@
 <?php
-include_once __DIR__ . "/../Model/callAccounts.php";
-include_once __DIR__ . "/../View/signUp.php";
+require_once "../Model/callAccounts.php";
+require_once "../View/signUp.php";
 
 class signUp{
     public static function execute(){
+        $page = new signUpView();
+        $page->display();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Haal de waarden op uit het formulier
-            $Naam = $_POST["Naam"];
+            $Name = $_POST["Naam"];
             $Email = $_POST["Email"];
-            $Wachtwoord = $_POST["Wachtwoord"];
+            $Password = $_POST["Wachtwoord"];
             // Wachtwoord hashen
 
-            tweeters::initializeDatabase();
-            $status = tweeters::makeAccount($Naam,$Email,$Wachtwoord);
+            accounts::initializeDatabase();
+            $status = accounts::makeAccount($Name,$Email,$Password);
 
             if ($status){
                 echo "account is aangemaakt. U kunt nu naar de inlogpagina";
             }
-
         }
     }
 }

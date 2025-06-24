@@ -1,0 +1,74 @@
+<?php
+class homeView {
+
+    public function display($tweets, $imgLink, $existingLikes) { // the arguments are an array of tweets and an path to the profilePicture
+        ?>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Churpify</title>
+            <link rel="stylesheet" href="../CSS/style.css">
+            <link rel="icon" href="../IMG/flavicon.ico" type="image/x-icon">
+        </head>
+        <body>
+        <div class="profileContainer">
+        </div>
+        </div>
+        <img class="ChurpifyLogo" src="../IMG/chirpifyLogo.png" alt="Churpify Logo">
+        <a class="makeChirpButton" href="../Controllers/tweetController.php">Maak nieuwe Chirp</a>
+        <a class="changeProfilePictureButton" href="../Controllers/profilePicturesController.php">Kies een Profielfoto</a>
+        <div class="welcomeText">
+
+        <?php 
+
+        $this->displayGreeting();
+        $this->loadProfilePicture($imgLink);
+        
+        foreach ($tweets as $tweet){
+            if (in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
+            }else{// if the user hasn't liked the tweet
+                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'],$tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
+            }
+        }
+
+        ?>
+        </body>
+        </html>
+     <?php
+    }
+
+    public function makeTweet($chirpPoster, $chirpContent, $likes, $tweetID,$likeImage, $chirpProfilePicture){
+        // function that generates a tweet and takes the poster, tweetcontent, likes and and ID as arguments
+        echo '
+<div class="tweetBox">
+    <div class="poster">
+        <img src="' . htmlspecialchars($chirpProfilePicture) . '" alt="Profile Picture" class="profilePic" />
+        <strong class="User" >' . htmlspecialchars($chirpPoster) . '</strong>
+    </div>
+    <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>
+
+                <form method="post" action="../Controllers/HomepageController.php">
+                    <input type="hidden" name="tweetID" value="' . htmlspecialchars($tweetID) . '">
+                    <input type="image" src="'. htmlspecialchars($likeImage) .'" class="likeImage" name="likePost" alt="Like">
+                </form>
+            </form>
+
+            <span class="likeCounter">' . (htmlspecialchars($likes)) . ' likes' . '</span>
+            </div>
+        ';
+    }
+
+    public static function loadProfilePicture($imgLink){
+        echo '
+        <div class="profileContainer">
+            <img class="profilePicture" src="' . htmlspecialchars($imgLink) .'" alt="">
+            <div class="welcomeText"> </div>
+        </div>';
+    }
+
+    public static function displayGreeting(){
+        echo "Welkom,  " . $_SESSION["username"] . "<br>";
+    }
+}
+?>
