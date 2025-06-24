@@ -24,16 +24,22 @@ class homePageView{
         $homeView = new homeView();
         $homeView->display($tweets, $profilePicture, $existingLikeIDs);
 
-        if (isset($_POST['tweetID'])) { // if the user likes a tweet
+        if (isset($_POST['tweetID'])) {
             $tweetID = $_POST["tweetID"];
-    
-            $result = Chirps::likeChirp($_SESSION["username"],$tweetID, $existingLikeIDs); // updating the chirp's like record
-            header('Location: ../Controllers/HomepageController.php');
+            
+            $result = Chirps::likeChirp($_SESSION["username"], $tweetID, $existingLikeIDs);
+        
+            // optionally store result in session for UI feedback
+            $_SESSION['like_status'] = $result ? 'liked' : 'already_liked';
+        
+            header('Location: ../View/hoofdpagina.php');
+            exit;
         }
 
         if (isset($_POST['chirpToDelete'])){
-            $tweetID = $_POST["chirpToDelete"];
-            Chirps::deleteChirp($tweetID);
+            $tweetToDelete= $_POST["chirpToDelete"];
+            Chirps::deleteChirp($tweetToDelete);
+
         }
     }
 }

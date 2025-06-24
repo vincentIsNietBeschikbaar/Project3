@@ -1,4 +1,5 @@
 <?php
+
 include_once __DIR__ . "/dbConnect.php";
 class Chirps{
     public static function makeChirp($Poster, $ChirpBericht){
@@ -14,29 +15,29 @@ class Chirps{
         // getting the chirps to display on the homepage
         global $pdo;
         $stmt = $pdo->prepare("SELECT b.Poster, b.ChirpBericht, b.ID, b.Likes, d.ProfielFoto
-FROM berichten b
-LEFT JOIN datavantwitter d ON b.Poster = d.Naam
-ORDER BY `ID` DESC;" );  
+        FROM berichten b
+        LEFT JOIN datavantwitter d ON b.Poster = d.Naam
+        ORDER BY `ID` DESC;" );  
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function likeChirp($username, $PostToLike, $existingLikes){
+    public static function likeChirp($username, $PostToLike, $existingLikes) {
         global $pdo;
-
-        if (!in_array($PostToLike, $existingLikes)){ // if the user liked the tweet already
-            // first statement is to update the amount of likes on a post
-            // the second statement saves which user liked which post
+    
+        if ($existingLikes == 0 || !in_array($PostToLike, $existingLikes)) {
             $stmt1 = $pdo->prepare("UPDATE berichten SET Likes = Likes + 1 WHERE ID = :PostID");
             $stmt1->bindParam(':PostID', $PostToLike);
             $stmt1->execute();
-            
+        
             $stmt2 = $pdo->prepare("INSERT INTO likedchirps (PostID, Username) VALUES (:PostID, :Username)");
             $stmt2->bindParam(':PostID', $PostToLike);
             $stmt2->bindParam(':Username', $username);
             $stmt2->execute();
-        }else{
-            echo "liked chirp already";
+        
+            return true; // liked successfully
+        } else {
+            return false; // already liked
         }
     }
 

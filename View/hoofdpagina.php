@@ -48,7 +48,7 @@ class homeView {
             </div>
             <div class="chirpText">' . htmlspecialchars($chirpContent) . '</div>';
 
-        if ($_SESSION['username'] == $chirpPoster) {
+        if ($_SESSION['username'] == $chirpPoster) { // if the chirp is posted by the user logged in
             echo '
             <form method="post" action="../Controllers/HomepageController.php">
                 <input type="hidden" name="chirpToDelete" value="' . htmlspecialchars($tweetID) . '">
