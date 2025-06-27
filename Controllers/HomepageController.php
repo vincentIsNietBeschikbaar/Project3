@@ -29,7 +29,6 @@ class homePageView{
             
             $result = Chirps::likeChirp($_SESSION["username"], $tweetID, $existingLikeIDs);
         
-            // optionally store result in session for UI feedback
             $_SESSION['like_status'] = $result ? 'liked' : 'already_liked';
         
             header('Location: ../View/hoofdpagina.php');
@@ -39,7 +38,6 @@ class homePageView{
         if (isset($_POST['chirpToDelete'])){
             $tweetToDelete= $_POST["chirpToDelete"];
             Chirps::deleteChirp($tweetToDelete);
-
         }
     }
 }

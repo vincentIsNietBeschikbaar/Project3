@@ -20,19 +20,23 @@ class homeView {
         <div class="welcomeText">
 
         <?php 
-
-        $this->displayGreeting();
-        $this->loadProfilePicture($imgLink);
-        
-        foreach ($tweets as $tweet){
-            if ($existingLikes != 0 && in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
-                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
-            }else{// if the user hasn't liked the tweet
-                $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'],$tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
-            }
-        }
-
+            $this->displayGreeting();
+            $this->loadProfilePicture($imgLink);
         ?>
+
+        <nav class="chirpBody">
+
+        <?php
+            foreach ($tweets as $tweet){
+                if ($existingLikes != 0 && in_array($tweet['ID'], $existingLikes)){ // if the user liked the tweet in a previous session
+                    $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'], $tweet['Likes'], $tweet['ID'], "../IMG/filledHeart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
+                }else{// if the user hasn't liked the tweet
+                    $this->makeTweet($tweet['Poster'], $tweet['ChirpBericht'],$tweet['Likes'], $tweet['ID'], "../IMG/unfilled_Heart.png", $imgLink = $tweet['ProfielFoto'] ?? '../IMG/Profielfotos/Default_pfp.jpg');
+                }
+            }
+        ?>
+
+        </nav>
         </body>
         </html>
      <?php
