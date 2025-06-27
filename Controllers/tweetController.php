@@ -2,9 +2,6 @@
 include_once __DIR__ . "/../Model/callAccounts.php";
 include_once __DIR__ . "/../Model/ChirpModel.php";
 include_once __DIR__ . "/../View/makeChirp.php";
-
-echo $_SESSION['profilePicture'];
-
 class NewChirp{
 
   public static function execute(){

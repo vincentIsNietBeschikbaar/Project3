@@ -122,13 +122,13 @@ white-space: normal;
 
 
 .makeChirpButton {
-  cursor: pointer;
+   cursor: pointer;
   text-decoration: none;
   background-color: skyblue;
   color: rgb(255, 255, 255);
   padding: 10px;
   border-radius: 20px;
-  position: absolute;
+  position: static;
   margin-left: 0;
   margin-top: 2%;
   font-size: 10px;
