@@ -256,6 +256,26 @@ margin-top: 1px;
   border-radius: 100%;
 }
 
+.profile-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10%;
+                    margin-bottom: 20px;
+                }
+                .profile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .profile img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                }
+                .linkButton, .profilePicButton {
+                    margin: 1%;
+                }
+
 a{
   text-decoration: none;
   padding: 5px;
