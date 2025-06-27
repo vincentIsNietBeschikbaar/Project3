@@ -14,8 +14,8 @@ class makeChirpView {
         <body>
           <form method="post" action="../Controllers/tweetController.php">
                 <textarea required id="makeChirpField" maxlength="281" class="makeChirpifyBox" name="ChirpBericht" cols="30" rows="10"></textarea><br> 
-                <input class="viewChirpsButton" type="submit" value="Zet in database"> 
-                <input class="viewChirpsButton"  type="file">
+                <input class="makeChirpifyButton" type="submit" value="Zet in database"> 
+                <input class="selectFileButton" type="file">
 
                 <a  class="viewChirpsButton" href="../Controllers/HomepageController.php">Bekijk Chirps hier</a> 
 
